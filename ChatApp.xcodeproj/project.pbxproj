@@ -11,6 +11,9 @@
 		D731BBAD294A608500CBE69E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D731BBAC294A608500CBE69E /* ContentView.swift */; };
 		D731BBAF294A608900CBE69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D731BBAE294A608900CBE69E /* Assets.xcassets */; };
 		D731BBB2294A608900CBE69E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D731BBB1294A608900CBE69E /* Preview Assets.xcassets */; };
+		D764E0E2294D00220005D3A4 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */; };
+		D764E0E3294D00220005D3A4 /* LexendDeca-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */; };
+		D764E0E4294D00220005D3A4 /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,10 @@
 		D731BBAC294A608500CBE69E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D731BBAE294A608900CBE69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D731BBB1294A608900CBE69E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
+		D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Bold.ttf"; sourceTree = "<group>"; };
+		D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
+		D764E0E5294D00A10005D3A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +58,7 @@
 		D731BBA9294A608500CBE69E /* ChatApp */ = {
 			isa = PBXGroup;
 			children = (
+				D764E0E5294D00A10005D3A4 /* Info.plist */,
 				D731BBAA294A608500CBE69E /* ChatAppApp.swift */,
 				D764E0D9294A68070005D3A4 /* Views */,
 				D764E0DA294A681F0005D3A4 /* ViewModels */,
@@ -111,6 +119,9 @@
 		D764E0DE294A6B180005D3A4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */,
+				D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */,
+				D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -174,6 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D731BBB2294A608900CBE69E /* Preview Assets.xcassets in Resources */,
+				D764E0E2294D00220005D3A4 /* LexendDeca-Regular.ttf in Resources */,
+				D764E0E4294D00220005D3A4 /* LexendDeca-SemiBold.ttf in Resources */,
+				D764E0E3294D00220005D3A4 /* LexendDeca-Bold.ttf in Resources */,
 				D731BBAF294A608900CBE69E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +331,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ChatApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -345,6 +360,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ChatApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

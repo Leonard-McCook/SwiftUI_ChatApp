@@ -9,13 +9,10 @@ import SwiftUI
 
 struct RootView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
+        Text("Hello, world!")
+            .padding()
+            .font(Font.custom("LexendDeca-Regular", size: 14))
+            
     }
 }
 
