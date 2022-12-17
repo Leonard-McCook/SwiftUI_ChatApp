@@ -11,6 +11,7 @@
 		D731BBAD294A608500CBE69E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D731BBAC294A608500CBE69E /* ContentView.swift */; };
 		D731BBAF294A608900CBE69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D731BBAE294A608900CBE69E /* Assets.xcassets */; };
 		D731BBB2294A608900CBE69E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D731BBB1294A608900CBE69E /* Preview Assets.xcassets */; };
+		D73A4356294E5AB400BE524C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A4355294E5AB400BE524C /* Fonts.swift */; };
 		D764E0E2294D00220005D3A4 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */; };
 		D764E0E3294D00220005D3A4 /* LexendDeca-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */; };
 		D764E0E4294D00220005D3A4 /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */; };
@@ -22,6 +23,7 @@
 		D731BBAC294A608500CBE69E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D731BBAE294A608900CBE69E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D731BBB1294A608900CBE69E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D73A4355294E5AB400BE524C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Bold.ttf"; sourceTree = "<group>"; };
 		D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		D764E0DD294A6A570005D3A4 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D73A4355294E5AB400BE524C /* Fonts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D731BBAD294A608500CBE69E /* ContentView.swift in Sources */,
+				D73A4356294E5AB400BE524C /* Fonts.swift in Sources */,
 				D731BBAB294A608500CBE69E /* ChatAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
