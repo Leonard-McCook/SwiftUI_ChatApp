@@ -20,7 +20,8 @@ struct CustomTabBar: View {
                     
                     Rectangle()
                         .foregroundColor(.blue)
-                        .frame(width: 64, height: 4)
+                        .frame(width: geo.size.width/2, height: 4)
+                        .padding(.leading, geo.size.width/4)
                     
                     VStack (alignment: .center, spacing: 4) {
                         
@@ -66,6 +67,11 @@ struct CustomTabBar: View {
             } label: {
                 
                 GeometryReader { geo in
+                    
+                    Rectangle()
+                        .foregroundColor(.blue)
+                        .frame(width: geo.size.width/2, height: 4)
+                        .padding(.leading, geo.size.width/4)
                     
                     VStack (alignment: .center, spacing: 4) {
                         Image(systemName: "person")
