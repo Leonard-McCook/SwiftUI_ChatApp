@@ -7,21 +7,34 @@
 
 import SwiftUI
 
+
+enum Tabs: Int {
+    case chats = 0
+    case contacts = 1
+}
+
 struct CustomTabBar: View {
+    
+    @Binding var selectedTab: Tabs
+    
     var body: some View {
         
         HStack (alignment: .center) {
             
             Button {
                 // Switch to chats
+                
+                selectedTab = .chats
             } label: {
                 
                 GeometryReader { geo in
                     
-                    Rectangle()
-                        .foregroundColor(.blue)
-                        .frame(width: geo.size.width/2, height: 4)
-                        .padding(.leading, geo.size.width/4)
+                    if selectedTab == .chats {
+                        Rectangle()
+                            .foregroundColor(.blue)
+                            .frame(width: geo.size.width/2, height: 4)
+                            .padding(.leading, geo.size.width/4)
+                    }
                     
                     VStack (alignment: .center, spacing: 4) {
                         
@@ -63,15 +76,18 @@ struct CustomTabBar: View {
             .tint(Color("icons-primary"))
             
             Button {
-                // Switch to chats
+                // Switch to contacts
+                selectedTab = .contacts
             } label: {
                 
                 GeometryReader { geo in
                     
-                    Rectangle()
-                        .foregroundColor(.blue)
-                        .frame(width: geo.size.width/2, height: 4)
-                        .padding(.leading, geo.size.width/4)
+                    if selectedTab == .contacts {
+                        Rectangle()
+                            .foregroundColor(.blue)
+                            .frame(width: geo.size.width/2, height: 4)
+                            .padding(.leading, geo.size.width/4)
+                    }
                     
                     VStack (alignment: .center, spacing: 4) {
                         Image(systemName: "person")
@@ -95,7 +111,7 @@ struct CustomTabBar: View {
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabBar()
+        CustomTabBar(selectedTab:   .constant(.contacts))
     }
 }
 

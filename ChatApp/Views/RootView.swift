@@ -9,6 +9,8 @@ import SwiftUI
 
 struct RootView: View {
     
+    @State var selectedTab: Tabs = .contacts
+    
     var body: some View {
         
         VStack {
@@ -19,7 +21,7 @@ struct RootView: View {
             
                 Spacer()
             
-                CustomTabBar()
+                CustomTabBar(selectedTab: $selectedTab)
        }
         
     }
