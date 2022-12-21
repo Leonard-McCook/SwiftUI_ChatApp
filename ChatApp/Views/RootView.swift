@@ -14,8 +14,8 @@ struct RootView: View {
     var body: some View {
         
         VStack {
-            
-            Text("Hello, world!")
+            Image(systemName: "hammer.fill")
+            Text("Under construction")
                 .padding()
                 .font(Font.chatHeading)
             

@@ -16,6 +16,7 @@
 		D764E0E2294D00220005D3A4 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */; };
 		D764E0E3294D00220005D3A4 /* LexendDeca-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */; };
 		D764E0E4294D00220005D3A4 /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */; };
+		D7DFCF232953B018002ACFEE /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF222953B018002ACFEE /* TabBarButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Bold.ttf"; sourceTree = "<group>"; };
 		D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
 		D764E0E5294D00A10005D3A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D7DFCF222953B018002ACFEE /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				D73A4358294FDEB800BE524C /* CustomTabBar.swift */,
+				D7DFCF222953B018002ACFEE /* TabBarButton.swift */,
 			);
 			path = "Custom Tab Bar";
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				D73A4359294FDEB800BE524C /* CustomTabBar.swift in Sources */,
 				D731BBAD294A608500CBE69E /* RootView.swift in Sources */,
 				D73A4356294E5AB400BE524C /* Fonts.swift in Sources */,
+				D7DFCF232953B018002ACFEE /* TabBarButton.swift in Sources */,
 				D731BBAB294A608500CBE69E /* ChatAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
