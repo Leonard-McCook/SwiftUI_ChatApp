@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct ChatAppApp: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             RootView()
