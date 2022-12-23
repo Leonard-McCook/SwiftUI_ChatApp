@@ -17,13 +17,13 @@
 		D764E0E3294D00220005D3A4 /* LexendDeca-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */; };
 		D764E0E4294D00220005D3A4 /* LexendDeca-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */; };
 		D7DFCF232953B018002ACFEE /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF222953B018002ACFEE /* TabBarButton.swift */; };
-		D7DFCF252954BD3B002ACFEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7DFCF242954BD3B002ACFEE /* GoogleService-Info.plist */; };
 		D7DFCF282954C0CA002ACFEE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7DFCF272954C0CA002ACFEE /* FirebaseAuth */; };
 		D7DFCF2A2954C0CA002ACFEE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D7DFCF292954C0CA002ACFEE /* FirebaseFirestore */; };
 		D7DFCF2C2954C0CA002ACFEE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D7DFCF2B2954C0CA002ACFEE /* FirebaseFirestoreSwift */; };
 		D7DFCF2E2954C0CA002ACFEE /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D7DFCF2D2954C0CA002ACFEE /* FirebaseStorage */; };
 		D7DFCF302954C18E002ACFEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF2F2954C18E002ACFEE /* AppDelegate.swift */; };
 		D7DFCF332954F8B0002ACFEE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF322954F8B0002ACFEE /* AuthViewModel.swift */; };
+		D7DFCF35295509FE002ACFEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7DFCF34295509FE002ACFEE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,10 +39,10 @@
 		D764E0E1294D00220005D3A4 /* LexendDeca-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-SemiBold.ttf"; sourceTree = "<group>"; };
 		D764E0E5294D00A10005D3A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D7DFCF222953B018002ACFEE /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
-		D7DFCF242954BD3B002ACFEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7DFCF2F2954C18E002ACFEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7DFCF312954ECC2002ACFEE /* ChatApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChatApp.entitlements; sourceTree = "<group>"; };
 		D7DFCF322954F8B0002ACFEE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		D7DFCF34295509FE002ACFEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				D7DFCF312954ECC2002ACFEE /* ChatApp.entitlements */,
-				D7DFCF242954BD3B002ACFEE /* GoogleService-Info.plist */,
+				D7DFCF34295509FE002ACFEE /* GoogleService-Info.plist */,
 				D764E0E5294D00A10005D3A4 /* Info.plist */,
 				D7DFCF2F2954C18E002ACFEE /* AppDelegate.swift */,
 				D731BBAA294A608500CBE69E /* ChatAppApp.swift */,
@@ -234,7 +234,7 @@
 				D764E0E4294D00220005D3A4 /* LexendDeca-SemiBold.ttf in Resources */,
 				D764E0E3294D00220005D3A4 /* LexendDeca-Bold.ttf in Resources */,
 				D731BBAF294A608900CBE69E /* Assets.xcassets in Resources */,
-				D7DFCF252954BD3B002ACFEE /* GoogleService-Info.plist in Resources */,
+				D7DFCF35295509FE002ACFEE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
