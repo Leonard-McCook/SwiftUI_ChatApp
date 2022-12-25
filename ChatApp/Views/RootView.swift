@@ -29,6 +29,7 @@ struct RootView: View {
             // On dismiss
         } content: {
             // The onboarding sequence
+            OnboardingContainerView()
         }
         
         
