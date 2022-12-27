@@ -33,27 +33,21 @@ struct WelcomeView: View {
                 // Next step
                 currentStep = .phonenumber
             } label: {
-                
-                ZStack {
-                    Rectangle()
-                        .frame(height: 50)
-                        .cornerRadius(4)
-                        .foregroundColor(Color("button-primary"))
-                    
-                    Text("Get Started").font(Font.button)         .foregroundColor(Color("text-button"))
-                }
-                
+                Text("Get Started")
             }
-             
-            Text(" By tapping 'Get Started', you agree to our Privacy Policy.")
-                .font(Font.smallText)
-                .padding(.top, 14)
-                .padding(.bottom, 61)
+            .buttonStyle(OnboardingButtonStyle())
             
-        }
-        .padding(.horizontal)
+        
+        
+        Text(" By tapping 'Get Started', you agree to our Privacy Policy.")
+            .font(Font.smallText)
+            .padding(.top, 14)
+            .padding(.bottom, 61)
         
     }
+        .padding(.horizontal)
+    
+}
 }
 
 struct WelcomeView_Previews: PreviewProvider {
