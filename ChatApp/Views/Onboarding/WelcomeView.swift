@@ -22,7 +22,7 @@ struct WelcomeView: View {
                 .font(Font.titleText)
                 .padding(.top, 32)
             
-            Text("Simple and fuss-free chat experience")
+            Text("Simple and hassle-free chat experience")
                 .font(Font.bodyParagraph)
                 .padding(.top, 8)
             
