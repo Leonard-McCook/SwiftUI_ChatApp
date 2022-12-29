@@ -33,7 +33,7 @@ struct OnboardingContainerView: View {
                 WelcomeView(currentStep: $currentStep)
                 
             case .phonenumber:
-                PhoneNumberView()
+                PhoneNumberView(currentStep: $currentStep)
                 
             case .verification:
                 VerificationView()
