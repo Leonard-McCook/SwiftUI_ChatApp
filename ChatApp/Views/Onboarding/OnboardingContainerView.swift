@@ -18,7 +18,7 @@ enum OnboardingStep: Int {
 
 struct OnboardingContainerView: View {
     
-    @State var currentStep: OnboardingStep = .welcome
+    @State var currentStep: OnboardingStep = .profile
     
     var body: some View {
     
@@ -39,7 +39,7 @@ struct OnboardingContainerView: View {
                 VerificationView(currentStep: $currentStep)
                 
             case .profile:
-                CreateProfileView()
+                CreateProfileView(currentStep: $currentStep)
                 
             case .contacts:
                 SyncContactsView()
