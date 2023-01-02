@@ -32,6 +32,7 @@
 		D7DFCF3E295792BB002ACFEE /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF3D295792BB002ACFEE /* VerificationView.swift */; };
 		D7DFCF402957934F002ACFEE /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF3F2957934F002ACFEE /* CreateProfileView.swift */; };
 		D7DFCF42295793B3002ACFEE /* SyncContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF41295793B3002ACFEE /* SyncContactsView.swift */; };
+		D7F7EF5A2963798500024A45 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7EF592963798500024A45 /* ContactsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		D7DFCF3D295792BB002ACFEE /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		D7DFCF3F2957934F002ACFEE /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		D7DFCF41295793B3002ACFEE /* SyncContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncContactsView.swift; sourceTree = "<group>"; };
+		D7F7EF592963798500024A45 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				D7DFCF322954F8B0002ACFEE /* AuthViewModel.swift */,
+				D7F7EF592963798500024A45 /* ContactsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				D7DFCF3C2957929E002ACFEE /* PhoneNumberView.swift in Sources */,
 				D73A4356294E5AB400BE524C /* Fonts.swift in Sources */,
 				D7DFCF3E295792BB002ACFEE /* VerificationView.swift in Sources */,
+				D7F7EF5A2963798500024A45 /* ContactsViewModel.swift in Sources */,
 				D7DFCF232953B018002ACFEE /* TabBarButton.swift in Sources */,
 				D731BBAB294A608500CBE69E /* ChatAppApp.swift in Sources */,
 			);
