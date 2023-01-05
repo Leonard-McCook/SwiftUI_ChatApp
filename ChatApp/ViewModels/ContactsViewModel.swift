@@ -9,6 +9,8 @@ import Foundation
 import Contacts
 
 class ContactsViewModel: ObservableObject {
+    
+    private var localContacts = [CNContact]()
 
     func getLocalContacts() {
         
@@ -30,9 +32,11 @@ class ContactsViewModel: ObservableObject {
                 try store.enumerateContacts(with: fetchRequest, usingBlock: { contact, sucess in
                     
                     // Do something with the contact
-                    var c = contact
+                    self.localContacts.append(contact)
                     
                 })
+                
+                // TODO: see which local contacts are actually users of this app
                 
             }
             catch {
