@@ -14,6 +14,9 @@ struct CreateProfileView: View {
     @State var firstName = ""
     @State var lastName = ""
     
+    @State var selectedImage: UIImage?
+    @State var isPickerShowing = false
+    
     var body: some View {
         
         VStack {
@@ -32,6 +35,8 @@ struct CreateProfileView: View {
             Button {
                 
                 // Show action sheet
+                isPickerShowing = true
+                
                 
             } label: {
                 
@@ -79,6 +84,11 @@ struct CreateProfileView: View {
             
         }
         .padding(.horizontal)
+        .sheet(isPresented: $isPickerShowing) {
+            
+            // Show the image picker
+            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+        }
     }
     
 }
