@@ -42,16 +42,23 @@ struct CreateProfileView: View {
                 
                 ZStack {
                     
-                    Circle()
-                        .foregroundColor(Color.white)
-                    
+                    if selectedImage != nil {
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                        
+                    } else {
+                        Circle()
+                            .foregroundColor(Color.white)
+                        
+                        Image(systemName: "camera.fill")
+                            .tint(Color("icons-input"))
+                    }
                     
                     Circle()
                         .stroke(Color("create-profile-border"), lineWidth: 2)
-                    
-                    Image(systemName: "camera.fill")
-                        .tint(Color("icons-input"))
-                    
+                   
                 }
                 .frame(width: 134, height: 134)
                 
