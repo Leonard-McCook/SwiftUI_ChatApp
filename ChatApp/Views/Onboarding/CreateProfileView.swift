@@ -17,6 +17,9 @@ struct CreateProfileView: View {
     @State var selectedImage: UIImage?
     @State var isPickerShowing = false
     
+    @State var isSourceMenuShowing = false
+    @State var source: UIImagePickerController.SourceType = .photoLibrary
+    
     var body: some View {
         
         VStack {
@@ -35,7 +38,7 @@ struct CreateProfileView: View {
             Button {
                 
                 // Show action sheet
-                isPickerShowing = true
+                isSourceMenuShowing = true
                 
                 
             } label: {
@@ -58,7 +61,7 @@ struct CreateProfileView: View {
                     
                     Circle()
                         .stroke(Color("create-profile-border"), lineWidth: 2)
-                   
+                    
                 }
                 .frame(width: 134, height: 134)
                 
@@ -91,10 +94,38 @@ struct CreateProfileView: View {
             
         }
         .padding(.horizontal)
+        .confirmationDialog("From where?", isPresented: $isSourceMenuShowing, actions: {
+            
+            Button {
+                // Set the source to photo library
+                self.source = .photoLibrary
+                
+                // Show the image picker
+                isPickerShowing = true
+                
+            } label: {
+                Text("Photo Library")
+            }
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                
+                Button {
+                    // Set the source to the camera                self.source = .photoLibrary
+                    self.source = .camera
+                    
+                    // Show the image picker
+                    isPickerShowing = true
+                    
+                } label: {
+                    Text("Take Photo")
+                }
+            }
+            
+        })
         .sheet(isPresented: $isPickerShowing) {
             
             // Show the image picker
-            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing)
+            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing, source: self.source)
         }
     }
     

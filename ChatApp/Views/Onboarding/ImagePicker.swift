@@ -8,10 +8,12 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var selectedImage: UIImage?
     @Binding var isPickerShowing: Bool
     
+    var source: UIImagePickerController.SourceType
+    
     func makeUIViewController(context: Context) -> some UIViewController {
         
         let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = source
         imagePicker.delegate = context.coordinator
         
         return imagePicker
