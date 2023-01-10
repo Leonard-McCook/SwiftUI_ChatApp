@@ -8,6 +8,7 @@
 import Foundation
 import Contacts
 import Firebase
+import UIKit    
 
 
 class DatabaseService {
@@ -75,4 +76,26 @@ class DatabaseService {
         }
     }
     
+    func setUserProfile(firstName: String, lastName: String, image: UIImage?) {
+        
+        // TODO: Guard against logged out users
+        
+        // Get a reference to Firestore
+        let db = Firestore.firestore()
+        
+        // Set the profile data
+        
+        // TODO: After implementing authentication, create a document with the actual user's id
+        let doc = db.collection("users").document()
+        doc.setData(["firstname": firstName,
+                     "lastName": lastName])
+        
+        // Check if an image is passed through
+        
+        // Upload the image data
+        
+        // Set that image path to the profile
+        
+        
+    }
 }

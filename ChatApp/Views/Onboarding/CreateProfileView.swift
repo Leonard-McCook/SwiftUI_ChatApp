@@ -84,7 +84,10 @@ struct CreateProfileView: View {
             Button {
                 // Next step
                 
-                currentStep = .contacts
+                // Save the data
+                DatabaseService().setUserProfile(firstName: firstName, lastName: lastName, image: selectedImage)
+                
+//                currentStep = .contacts
                 
             } label: {
                 Text("Next")
