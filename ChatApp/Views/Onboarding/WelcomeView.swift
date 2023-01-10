@@ -33,7 +33,7 @@ struct WelcomeView: View {
                 // Next step
                 currentStep = .phonenumber
             } label: {
-                Text("Try it Now")
+                Text("Get Started")
             }
             .buttonStyle(OnboardingButtonStyle())
             
