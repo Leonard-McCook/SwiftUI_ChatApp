@@ -20,6 +20,8 @@ struct CreateProfileView: View {
     @State var isSourceMenuShowing = false
     @State var source: UIImagePickerController.SourceType = .photoLibrary
     
+    @State var isSaveButtonDisabled = false
+    
     var body: some View {
         
         VStack {
@@ -40,7 +42,6 @@ struct CreateProfileView: View {
                 // Show action sheet
                 isSourceMenuShowing = true
                 
-                
             } label: {
                 
                 ZStack {
@@ -50,8 +51,8 @@ struct CreateProfileView: View {
                             .resizable()
                             .scaledToFill()
                             .clipShape(Circle())
-                        
-                    } else {
+                    }
+                    else {
                         Circle()
                             .foregroundColor(Color.white)
                         
@@ -69,31 +70,42 @@ struct CreateProfileView: View {
             
             Spacer()
             
-            // First Name
-            TextField("First Name", text: $firstName)
+            // First name
+            TextField("Given Name", text: $firstName)
                 .textFieldStyle(CreateProfileTextfieldStyle())
             
-            
-            // Last Name
+            // Last name
             TextField("Last Name", text: $lastName)
                 .textFieldStyle(CreateProfileTextfieldStyle())
-            
             
             Spacer()
             
             Button {
-                // Next step
+                
+                // Prevent double taps
+                isSaveButtonDisabled = true
                 
                 // Save the data
-                DatabaseService().setUserProfile(firstName: firstName, lastName: lastName, image: selectedImage)
-                
-//                currentStep = .contacts
+                DatabaseService().setUserProfile(firstName: firstName,
+                                                 lastName: lastName,
+                                                 image: selectedImage) { isSuccess in
+                    if isSuccess {
+                        currentStep = .contacts
+                    }
+                    else {
+                        // TODO: Show error message to the user
+                    }
+                    
+                    isSaveButtonDisabled = false
+                }
                 
             } label: {
-                Text("Next")
+                Text(isSaveButtonDisabled ? "Uploading" : "Save")
             }
             .buttonStyle(OnboardingButtonStyle())
+            .disabled(isSaveButtonDisabled)
             .padding(.bottom, 87)
+            
             
         }
         .padding(.horizontal)
@@ -113,30 +125,30 @@ struct CreateProfileView: View {
             if UIImagePickerController.isSourceTypeAvailable(.camera) {
                 
                 Button {
-                    // Set the source to the camera                self.source = .photoLibrary
+                    // Set the source to camera
                     self.source = .camera
                     
                     // Show the image picker
                     isPickerShowing = true
-                    
                 } label: {
                     Text("Take Photo")
                 }
             }
             
+            
         })
         .sheet(isPresented: $isPickerShowing) {
             
             // Show the image picker
-            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing, source: self.source)
+            ImagePicker(selectedImage: $selectedImage,
+                        isPickerShowing: $isPickerShowing, source: self.source)
         }
+        
     }
-    
 }
 
 struct CreateProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateProfileView(currentStep:
-                .constant(.profile))
+        CreateProfileView(currentStep: .constant(.profile))
     }
 }
