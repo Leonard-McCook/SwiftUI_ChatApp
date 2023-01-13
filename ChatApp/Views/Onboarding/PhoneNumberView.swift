@@ -59,9 +59,10 @@ struct PhoneNumberView: View {
             Spacer()
             
             Button {
-                // Next step
+                // TODO: Send their phone number to Firebase Auth
                 
-                currentStep = .verification
+                
+                // currentStep = .verification
             } label: {
                 Text("Next")
             }

@@ -21,4 +21,22 @@ class AuthViewModel {
     static func logout() {
         try? Auth.auth().signOut()
     }
+    
+    static func sendPhoneNumber(phone: String) {
+        
+        // Send the phone number to Firebase Auth
+        PhoneAuthProvider.provider().verifyPhoneNumber(phone,
+                                                       uiDelegate: nil)
+        { verificationId, error in
+       
+            if error == nil {
+                // Got the verification id
+                UserDefaults.standard.set(verificationId, forKey: "authVerificationID")
+            }
+            else {
+                // There was a problem sending the phone number
+                // TODO: Notify the UI
+            }
+        }
+    }
 }
