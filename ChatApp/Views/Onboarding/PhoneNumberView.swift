@@ -59,10 +59,23 @@ struct PhoneNumberView: View {
             Spacer()
             
             Button {
-                // TODO: Send their phone number to Firebase Auth
+                // Send their phone number to Firebase Auth
                 
+                AuthViewModel.sendPhoneNumber(phone: phoneNumber) { error in
+                    
+                    // Check for errors
+                    if error == nil {
+                        
+                        // Move to the next step
+                        currentStep = .verification
+                    }
+                    else {
+                        // TODO: show an error
+                    }
+                    
+                }
                 
-                // currentStep = .verification
+                 
             } label: {
                 Text("Next")
             }

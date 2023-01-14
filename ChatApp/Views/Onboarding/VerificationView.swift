@@ -34,7 +34,7 @@ struct VerificationView: View {
                 HStack {
                     TextField("", text: $verificationcode)
                         .font(Font.bodyParagraph)
-                        
+                    
                     
                     Spacer()
                     
@@ -47,6 +47,8 @@ struct VerificationView: View {
                     .frame(width: 19, height: 19)
                     .tint(Color("icons-input"))
                     
+                    
+                    
                 }
                 .padding()
             }
@@ -57,7 +59,19 @@ struct VerificationView: View {
             Spacer()
             
             Button {
-                // Next step
+                // Send the verification code to Firebase
+                AuthViewModel.verifyCode(code: verificationcode) { error in
+                    
+                    // Check for errors
+                    if error == nil {
+                        
+                        // Move to the next step
+                        currentStep = .profile
+                    }
+                    else {
+                        // TODO: show an error
+                    }
+                }
                 
                 currentStep = .profile
             } label: {
