@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PhoneNumberView: View {
     
@@ -37,9 +38,14 @@ struct PhoneNumberView: View {
                     TextField("e.g. +1 613 515 0123",
                               text: $phoneNumber)
                     .font(Font.bodyParagraph)
+                    .keyboardType(.phonePad)
+                    .onReceive(Just(phoneNumber)) { _ in
+                        TextHelper.applyPatternOnNumbers(&phoneNumber,
+                                                         pattern: "+# (###) ###-####", replacementCharacter: "#")
+                    }
                     
                     Spacer()
-                    
+                        
                     Button {
                         // Clear text field
                         phoneNumber = ""

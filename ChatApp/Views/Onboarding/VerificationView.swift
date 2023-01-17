@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct VerificationView: View {
     
@@ -34,6 +35,11 @@ struct VerificationView: View {
                 HStack {
                     TextField("", text: $verificationcode)
                         .font(Font.bodyParagraph)
+                        .keyboardType(.numberPad)
+                        .onReceive(Just(verificationcode)) { _ in
+                            TextHelper.limitText(&verificationcode, 6)
+                        }
+                    
                     
                     
                     Spacer()
