@@ -23,7 +23,7 @@ struct PhoneNumberView: View {
                 .font(Font.titleText)
                 .padding(.top, 52)
             
-            Text("Enter your mobile number below. We'll send you a verification code after")
+            Text("Enter your mobile number below. A verification code will be sent to you")
                 .font(Font.bodyParagraph)
                 .padding(.top, 12)
             

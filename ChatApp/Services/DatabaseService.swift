@@ -39,7 +39,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-            
+        
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -48,7 +48,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-            
+        
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -94,7 +94,7 @@ class DatabaseService {
         
         // Check if an image is passed through
         if let image = image {
-            
+        
             // Create storage reference
             let storageRef = Storage.storage().reference()
             
@@ -135,5 +135,7 @@ class DatabaseService {
     }
     
 }
+
+
 
 
