@@ -15,13 +15,14 @@ struct VerificationView: View {
     @State var verificationcode = ""
     
     var body: some View {
+        
         VStack {
             
             Text("Verification")
                 .font(Font.titleText)
                 .padding(.top, 52)
             
-            Text("Enter the 6-digit verification code we sent to your device")
+            Text("Enter the 6-digit verification code we sent to your device.")
                 .font(Font.bodyParagraph)
                 .padding(.top, 12)
             
@@ -29,7 +30,7 @@ struct VerificationView: View {
             ZStack {
                 
                 Rectangle()
-                    .frame(height:56)
+                    .frame(height: 56)
                     .foregroundColor(Color("input"))
                 
                 HStack {
@@ -39,8 +40,6 @@ struct VerificationView: View {
                         .onReceive(Just(verificationcode)) { _ in
                             TextHelper.limitText(&verificationcode, 6)
                         }
-                    
-                    
                     
                     Spacer()
                     
@@ -57,10 +56,9 @@ struct VerificationView: View {
                     
                 }
                 .padding()
+                
             }
             .padding(.top, 34)
-            
-            
             
             Spacer()
             
@@ -75,19 +73,22 @@ struct VerificationView: View {
                         currentStep = .profile
                     }
                     else {
-                        // TODO: show an error
+                        // TODO: Show error message
                     }
                 }
                 
-                currentStep = .profile
+                
+                
             } label: {
                 Text("Next")
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)
             
+            
         }
         .padding(.horizontal)
+        
     }
 }
 

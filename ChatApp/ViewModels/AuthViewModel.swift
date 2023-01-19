@@ -18,6 +18,10 @@ class AuthViewModel {
         return Auth.auth().currentUser?.uid ?? ""
     }
     
+    static func getLoggedInUserPhone() -> String {
+        return Auth.auth().currentUser?.phoneNumber ?? ""
+    }
+    
     static func logout() {
         try? Auth.auth().signOut()
     }
@@ -40,15 +44,16 @@ class AuthViewModel {
                 // Notify the UI
                 completion(error)
             }
+            
         }
     }
     
     static func verifyCode(code: String, completion: @escaping (Error?) -> Void) {
         
-        // Get verification id from local storage
+        // Get the verification id from local storage
         let verificationId = UserDefaults.standard.string(forKey: "authVerificationID") ?? ""
         
-        // Send the code and the verification ID to Firebase
+        // Send the code and the verification id to Firebase
         let credential = PhoneAuthProvider.provider().credential(
             withVerificationID: verificationId,
             verificationCode: code
@@ -58,9 +63,10 @@ class AuthViewModel {
         Auth.auth().signIn(with: credential) { authResult, error in
             
             DispatchQueue.main.async {
-                //Notify the UI
+                // Notify the UI
                 completion(error)
             }
         }
     }
 }
+
