@@ -39,7 +39,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-        
+            
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -48,7 +48,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-        
+            
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -101,7 +101,7 @@ class DatabaseService {
         
         // Check if an image is passed through
         if let image = image {
-        
+            
             // Create storage reference
             let storageRef = Storage.storage().reference()
             
@@ -141,6 +141,31 @@ class DatabaseService {
         
     }
     
+    func checkUserProfile(completion: @escaping (Bool) -> Void) {
+        
+        // Check that the user is logged in
+        guard AuthViewModel.isUserLoggedIn() != false else {
+            return
+        }
+        
+        // Create firebase ref
+        let db = Firestore.firestore()
+        
+        db.collection("users").document(AuthViewModel.getLoggedInUserId()).getDocument { snapshot, error in
+            
+            // TODO: Keep the users profile data
+            if snapshot != nil && error == nil {
+                
+                // Notify that profile exists
+                completion(snapshot!.exists)
+            }
+            else {
+                // TODO: Look into using Result type to indicate failure vs profile status
+                completion(false)
+            }
+            
+        }
+    }
 }
 
 
