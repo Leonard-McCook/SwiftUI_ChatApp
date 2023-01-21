@@ -16,10 +16,13 @@ struct RootView: View {
     var body: some View {
         
         VStack {
-            Image(systemName: "hammer.fill")
-            Text("Under construction")
-                .padding()
-                .font(Font.chatHeading)
+            
+            switch selectedTab {
+            case .chats:
+                <#code#>
+            case .contacts:
+                <#code#>
+            }
             
             Spacer()
             

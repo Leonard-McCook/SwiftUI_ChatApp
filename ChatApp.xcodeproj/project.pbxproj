@@ -142,6 +142,8 @@
 		D764E0D9294A68070005D3A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D7FEF57A297B7DF200970FC4 /* Chats View */,
+				D7FEF579297B7DCC00970FC4 /* Contacts View */,
 				D731BBAC294A608500CBE69E /* RootView.swift */,
 				D7DFCF3629575EE3002ACFEE /* Onboarding */,
 				D73A4357294FDE6900BE524C /* Custom Tab Bar */,
@@ -207,6 +209,20 @@
 				D7DFCF41295793B3002ACFEE /* SyncContactsView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		D7FEF579297B7DCC00970FC4 /* Contacts View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Contacts View";
+			sourceTree = "<group>";
+		};
+		D7FEF57A297B7DF200970FC4 /* Chats View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Chats View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
