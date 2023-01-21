@@ -37,6 +37,8 @@
 		D7F7EF5C2966215700024A45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7EF5B2966215700024A45 /* User.swift */; };
 		D7F7EF5E2966596F00024A45 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7EF5D2966596F00024A45 /* DatabaseService.swift */; };
 		D7F7EF602967B07400024A45 /* TextHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7EF5F2967B07400024A45 /* TextHelper.swift */; };
+		D7FEF57C297B7EAC00970FC4 /* ContactsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEF57B297B7EAC00970FC4 /* ContactsListView.swift */; };
+		D7FEF57E297B7ECB00970FC4 /* ChatsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7FEF57D297B7ECB00970FC4 /* ChatsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		D7F7EF5B2966215700024A45 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D7F7EF5D2966596F00024A45 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		D7F7EF5F2967B07400024A45 /* TextHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHelper.swift; sourceTree = "<group>"; };
+		D7FEF57B297B7EAC00970FC4 /* ContactsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListView.swift; sourceTree = "<group>"; };
+		D7FEF57D297B7ECB00970FC4 /* ChatsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,10 +146,10 @@
 		D764E0D9294A68070005D3A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D7FEF57A297B7DF200970FC4 /* Chats View */,
-				D7FEF579297B7DCC00970FC4 /* Contacts View */,
 				D731BBAC294A608500CBE69E /* RootView.swift */,
 				D7DFCF3629575EE3002ACFEE /* Onboarding */,
+				D7FEF57A297B7DF200970FC4 /* Chats View */,
+				D7FEF579297B7DCC00970FC4 /* Contacts View */,
 				D73A4357294FDE6900BE524C /* Custom Tab Bar */,
 			);
 			path = Views;
@@ -214,6 +218,7 @@
 		D7FEF579297B7DCC00970FC4 /* Contacts View */ = {
 			isa = PBXGroup;
 			children = (
+				D7FEF57B297B7EAC00970FC4 /* ContactsListView.swift */,
 			);
 			path = "Contacts View";
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 		D7FEF57A297B7DF200970FC4 /* Chats View */ = {
 			isa = PBXGroup;
 			children = (
+				D7FEF57D297B7ECB00970FC4 /* ChatsListView.swift */,
 			);
 			path = "Chats View";
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 				D73A4359294FDEB800BE524C /* CustomTabBar.swift in Sources */,
 				D7650A1A295B8F9600E69A11 /* OnboardingButtonStyle.swift in Sources */,
 				D731BBAD294A608500CBE69E /* RootView.swift in Sources */,
+				D7FEF57E297B7ECB00970FC4 /* ChatsListView.swift in Sources */,
 				D7F7EF602967B07400024A45 /* TextHelper.swift in Sources */,
 				D7F7EF5C2966215700024A45 /* User.swift in Sources */,
 				D7DFCF3A29579283002ACFEE /* WelcomeView.swift in Sources */,
@@ -324,6 +331,7 @@
 				D7DFCF3C2957929E002ACFEE /* PhoneNumberView.swift in Sources */,
 				D73A4356294E5AB400BE524C /* Fonts.swift in Sources */,
 				D7DFCF3E295792BB002ACFEE /* VerificationView.swift in Sources */,
+				D7FEF57C297B7EAC00970FC4 /* ContactsListView.swift in Sources */,
 				D7F7EF5A2963798500024A45 /* ContactsViewModel.swift in Sources */,
 				D78265F32968F6FE00A409C8 /* ImagePicker.swift in Sources */,
 				D7DFCF232953B018002ACFEE /* TabBarButton.swift in Sources */,

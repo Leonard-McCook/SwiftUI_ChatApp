@@ -19,10 +19,9 @@ struct RootView: View {
             
             switch selectedTab {
             case .chats:
-                <#code#>
+                ChatsListView()
             case .contacts:
-                <#code#>
-            }
+                ContactsListView()            }
             
             Spacer()
             
