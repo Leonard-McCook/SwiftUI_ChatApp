@@ -54,6 +54,7 @@ struct ContactsListView: View {
                 List(contactsViewModel.users) { user in
                     
                     // TODO: Display rows
+                    Text(user.firstname ?? "Test User")
                 }
                 .listStyle(.plain)
             }
@@ -75,6 +76,9 @@ struct ContactsListView: View {
             
         }
         .padding(.horizontal)
+        .onAppear {
+            contactsViewModel.getLocalContacts()
+        }
     }
 }
 
