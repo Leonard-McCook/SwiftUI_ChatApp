@@ -32,6 +32,7 @@ struct ContactsListView: View {
                         .tint(Color("icons-secondary"))
                 }
             }
+            .padding(.top, 20)
             
             // Search Bar
             ZStack {
@@ -44,16 +45,34 @@ struct ContactsListView: View {
                     .font(Font.tabBar)
                     .foregroundColor(Color("text-textfied"))
                     .padding()
-                    
+                
             }
             .frame(height: 46)
             
-            // List
-            List(contactsViewModel.users) { user in
-                
-                // TODO: Display rows
+            if contactsViewModel.users.count > 0 {
+                // List
+                List(contactsViewModel.users) { user in
+                    
+                    // TODO: Display rows
+                }
+                .listStyle(.plain)
             }
-            .listStyle(.plain)
+            else {
+                Spacer()
+                
+                Image("no-contacts-yet")
+                
+                Text("Hmm... Zero contacts?")
+                    .font(Font.titleText)
+                    .padding(.top, 32)
+                
+                Text("Try saving some contacts on your phone")
+                    .font(Font.bodyParagraph)
+                    .padding(.top, 8)
+                
+                Spacer()
+            }
+            
         }
         .padding(.horizontal)
     }

@@ -26,7 +26,6 @@ struct WelcomeView: View {
                 .font(Font.bodyParagraph)
                 .padding(.top, 8)
             
-            
             Spacer()
             
             Button {
