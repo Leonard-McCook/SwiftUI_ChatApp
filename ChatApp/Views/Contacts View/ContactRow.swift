@@ -9,7 +9,25 @@ import SwiftUI
 
 struct ContactRow: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        AsyncImage(url: URL(string: "")) { phase in
+            
+            switch phase {
+                
+            case AsyncImagePhase.empty:
+                // Currently fetching
+                ProgressView()
+                
+            case AsyncImagePhase.success(let image):
+                // Display the fetched image
+                image
+                
+            case AsyncImagePhase.failure(let error):
+                // Couldn't fetch profile photo
+                Circle()
+                    .foregroundColor(.white)
+            }
+        }
     }
 }
 
