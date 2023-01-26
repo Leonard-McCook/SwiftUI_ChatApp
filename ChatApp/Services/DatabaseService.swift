@@ -110,8 +110,7 @@ class DatabaseService {
             
             // Check that we were able to convert it to data
             guard imageData != nil else {
-                return
-            }
+                return            }
             
             // Specify the file path and name
             let path = "images/\(UUID().uuidString).jpg"
@@ -121,13 +120,26 @@ class DatabaseService {
                 
                 if error == nil && meta != nil
                 {
-                    // Set that image path to the profile
-                    doc.setData(["photo": path], merge: true) { error in
-                        if error == nil {
-                            // Success, notify caller
-                            completion(true)
+                    
+                    // Get full URL to image
+                    fileRef.downloadURL { url, error in
+                        
+                        // Check for errors
+                        if url != nil && error == nil {
+                            // Set that image path to the profile
+                            doc.setData(["photo": url!.absoluteString], merge: true) { error in
+                                if error == nil {
+                                    // Success, notify caller
+                                    completion(true)
+                                }
+                            }
+                        }
+                        else {
+                            // Wasn't successful in getting the download url of the photo
+                            completion(false)
                         }
                     }
+                    
                 }
                 else {
                     
@@ -135,10 +147,11 @@ class DatabaseService {
                     completion(false)
                 }
             }
-            
-            
         }
-        
+        else {
+            // No image was set
+            completion(true)
+        }
     }
     
     func checkUserProfile(completion: @escaping (Bool) -> Void) {
@@ -163,7 +176,6 @@ class DatabaseService {
                 // TODO: Look into using Result type to indicate failure vs profile status
                 completion(false)
             }
-            
         }
     }
 }

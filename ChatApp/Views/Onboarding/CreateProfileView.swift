@@ -82,6 +82,8 @@ struct CreateProfileView: View {
             
             Button {
                 
+                // TODO: Check that firstname/lastname fields are filled before allowing to save
+                
                 // Prevent double taps
                 isSaveButtonDisabled = true
                 

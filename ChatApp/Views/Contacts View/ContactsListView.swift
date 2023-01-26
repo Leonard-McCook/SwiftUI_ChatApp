@@ -53,8 +53,8 @@ struct ContactsListView: View {
                 // List
                 List(contactsViewModel.users) { user in
                     
-                    // TODO: Display rows
-                    Text(user.firstname ?? "Test User")
+                    // Display rows
+                    ContactRow(user: user)
                 }
                 .listStyle(.plain)
             }
