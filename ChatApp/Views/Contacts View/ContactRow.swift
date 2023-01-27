@@ -16,41 +16,64 @@ struct ContactRow: View {
         // Create URL from user photo url
         let photoUrl = URL(string: user.photo ?? "")
         
-        ZStack {
+        HStack (spacing: 24) {
             
             // Profile image
-            AsyncImage(url: photoUrl) { phase in
+            ZStack {
                 
-                switch phase {
+                // Profile image
+                AsyncImage(url: photoUrl) { phase in
                     
-                case .empty:
-                    // Currently fetching
-                    ProgressView()
-                    
-                case .success(let image):
-                    // Display the fetched image
-                    image
-                        .resizable()
-                        .scaledToFill()
-                    
-                case .failure:
-                    // Couldn't fetch profile photo
-                    //Diplay circle with first letter of first name
-                    
-                    ZStack {
-                        Circle()
-                            .foregroundColor(.white)
+                    switch phase {
                         
-                        Text(user.firstname?.prefix(1) ?? "")
-                            .bold()
+                    case .empty:
+                        // Currently fetching
+                        ProgressView()
+                        
+                    case .success(let image):
+                        // Display the fetched image
+                        image
+                            .resizable()
+                            .clipShape(Circle())
+                            .scaledToFill()
+                            .clipped()
+                        
+                    case .failure:
+                        // Couldn't fetch profile photo
+                        //Diplay circle with first letter of first name
+                        
+                        ZStack {
+                            Circle()
+                                .foregroundColor(.white)
+                            
+                            Text(user.firstname?.prefix(1) ?? "")
+                                .bold()
+                        }
                     }
                 }
+                
+                // Blue border
+                Circle()
+                    .stroke(Color("create-profile-border"), lineWidth: 2)
             }
             .frame(width: 44, height: 44)
+        
             
-            // Blue border
-            Circle()
-                .stroke(Color("create-profile-border"), lineWidth: 2)
+            VStack (alignment: .leading, spacing: 4) {
+                // Name
+                Text("\(user.firstname ?? "") \(user.lastname ?? "")")
+                    .font(Font.button)
+                    .foregroundColor(Color("text-primary"))
+                
+                // Phone number
+                Text(user.phone ?? "")
+                    .font(Font.bodyParagraph)
+                    .foregroundColor(Color("text-input"))
+            }
+            
+            // Extra space
+            Spacer()
+            
         }
     }
 }

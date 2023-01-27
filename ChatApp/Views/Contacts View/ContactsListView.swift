@@ -43,7 +43,7 @@ struct ContactsListView: View {
                 
                 TextField("Search contact or number", text: $filterText)
                     .font(Font.tabBar)
-                    .foregroundColor(Color("text-textfied"))
+                    .foregroundColor(Color("text-textfield"))
                     .padding()
                 
             }
@@ -55,8 +55,11 @@ struct ContactsListView: View {
                     
                     // Display rows
                     ContactRow(user: user)
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
                 }
                 .listStyle(.plain)
+                .padding(.top, 12)
             }
             else {
                 Spacer()
