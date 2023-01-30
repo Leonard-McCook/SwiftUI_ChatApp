@@ -53,8 +53,8 @@ struct VerificationView: View {
                     .frame(width: 19, height: 19)
                     .tint(Color("icons-input"))
                     
-                    
-                    
+                        
+                        
                 }
                 .padding()
                 
@@ -95,7 +95,7 @@ struct VerificationView: View {
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)
-            
+
             
         }
         .padding(.horizontal)
