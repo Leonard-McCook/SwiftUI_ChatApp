@@ -9,7 +9,25 @@ import SwiftUI
 
 struct ConversationView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+     
+        VStack {
+            
+            // Chat header
+            HStack {
+                VStack {
+                    // Back arrow
+                    
+                    // Name
+                }
+                
+                // Profile image
+            }
+            
+            // Chat log
+            
+            // Chat message bar
+        }
+        
     }
 }
 
