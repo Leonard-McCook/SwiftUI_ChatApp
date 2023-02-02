@@ -45,7 +45,7 @@ struct RootView: View {
         .fullScreenCover(isPresented: $isOnboarding, onDismiss: nil) {
         
             // The conversation view
-            ConversationView()
+            ConversationView(isChatShowing: $isChatShowing)
         }
         
         
