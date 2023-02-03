@@ -11,6 +11,8 @@ struct ConversationView: View {
     
     @Binding var isChatShowing: Bool
     
+    @State var chatMessage = ""
+    
     var body: some View {
      
         VStack {
@@ -32,6 +34,7 @@ struct ConversationView: View {
                             .frame(width: 24, height: 24)
                             .foregroundColor(Color("text-header"))
                     }
+                    .padding(.bottom, 16)
                   
                     // Name
                     Text("Marcus Fenix")
@@ -44,6 +47,7 @@ struct ConversationView: View {
                 // Profile image
                 ProfilePicView(user: User())
             }
+            .padding(.horizontal)
             .frame(height: 104)
             
             // Chat log
@@ -66,14 +70,59 @@ struct ConversationView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24, height: 24)
+                            .tint(Color("icons-secondary"))
                     }
                     // Textfield
+                    ZStack {
+                        
+                        Rectangle()
+                            .foregroundColor(Color("date-pill"))
+                            .cornerRadius(50)
+                        
+                        TextField("Type your message", text: $chatMessage)
+                            .foregroundColor(Color("text-input"))
+                            .font(Font.bodyParagraph)
+                            .padding(10)
+                        
+                        // Emoji button
+                        HStack {
+                            Spacer()
+                            
+                            Button {
+                                // Emojis
+                            } label: {
+                                Image(systemName: "face.smilling")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(Color("text-input"))
+                                
+                            
+                            }
+                        }
+                        .padding(.trailing, 12)
+                        
+                    }
+                    
+                    
                     // Send button
+                    Button {
+                        // TODO: Send messagem
+                    } label: {
+                        Image(systemName: "paperplane.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .tint(Color("icons-primary"))
+                        
+                    }
                     
                 }
+                .padding(.horizontal)
             }
             .frame(height: 76)
         }
+        
         
     }
 }

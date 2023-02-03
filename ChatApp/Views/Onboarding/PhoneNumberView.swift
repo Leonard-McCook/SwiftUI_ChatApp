@@ -14,7 +14,6 @@ struct PhoneNumberView: View {
     
     @State var phoneNumber = ""
     
-    
     var body: some View {
         
         VStack {
@@ -23,7 +22,7 @@ struct PhoneNumberView: View {
                 .font(Font.titleText)
                 .padding(.top, 52)
             
-            Text("Enter your mobile number below. A verification code will be sent to you")
+            Text("Enter your mobile number below. We’ll send you a verification code after.")
                 .font(Font.bodyParagraph)
                 .padding(.top, 12)
             
@@ -31,21 +30,21 @@ struct PhoneNumberView: View {
             ZStack {
                 
                 Rectangle()
-                    .frame(height:56)
+                    .frame(height: 56)
                     .foregroundColor(Color("input"))
                 
                 HStack {
-                    TextField("e.g. +1 613 515 0123",
-                              text: $phoneNumber)
-                    .font(Font.bodyParagraph)
-                    .keyboardType(.phonePad)
-                    .onReceive(Just(phoneNumber)) { _ in
-                        TextHelper.applyPatternOnNumbers(&phoneNumber,
-                                                         pattern: "+# (###) ###-####", replacementCharacter: "#")
-                    }
+                    TextField("e.g. +1 613 515 0123", text: $phoneNumber)
+                        .font(Font.bodyParagraph)
+                        .keyboardType(.numberPad)
+                        .onReceive(Just(phoneNumber)) { _ in
+                            TextHelper.applyPatternOnNumbers(&phoneNumber,
+                                                             pattern: "+# (###) ###-####",
+                                                             replacementCharacter: "#")
+                        }
                     
                     Spacer()
-                        
+                    
                     Button {
                         // Clear text field
                         phoneNumber = ""
@@ -54,13 +53,14 @@ struct PhoneNumberView: View {
                     }
                     .frame(width: 19, height: 19)
                     .tint(Color("icons-input"))
+                    
+                        
                         
                 }
                 .padding()
+                
             }
             .padding(.top, 34)
-            
-            
             
             Spacer()
             
@@ -78,20 +78,22 @@ struct PhoneNumberView: View {
                     else {
                         // TODO: show an error
                     }
-                    
                 }
                 
-                 
+                
+                
             } label: {
                 Text("Next")
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)
 
+            
         }
         .padding(.horizontal)
         
     }
+        
 }
 
 struct PhoneNumberView_Previews: PreviewProvider {
@@ -99,3 +101,4 @@ struct PhoneNumberView_Previews: PreviewProvider {
         PhoneNumberView(currentStep: .constant(.phonenumber))
     }
 }
+
