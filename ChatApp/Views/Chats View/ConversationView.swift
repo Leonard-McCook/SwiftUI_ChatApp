@@ -53,6 +53,29 @@ struct ConversationView: View {
             // Chat log
             ScrollView {
                 
+                VStack {
+                    
+                    // Their message
+                    HStack {
+                        // Message
+                        Text("Lorem ipsum dolor sit amet")
+                            .font(Font.bodyParagraph)
+                            .foregroundColor(Color("text-primary"))
+                            .padding(.vertical, 16)
+                            .padding(.horizontal, 24)
+                            .background(Color("bubble-secondary"))
+                        
+                        Spacer()
+                        // Timestamp
+                        Text("9:41")
+                            .font(Font.smallText)
+                            .foregroundColor(Color("text-timestamp"))
+                    }
+                    
+                    // Your message
+                    
+                }
+                
             }
             .background(Color("background"))
                 
