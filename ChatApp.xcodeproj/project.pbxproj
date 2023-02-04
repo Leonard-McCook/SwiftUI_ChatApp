@@ -36,6 +36,7 @@
 		D7DFCF3E295792BB002ACFEE /* VerificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF3D295792BB002ACFEE /* VerificationView.swift */; };
 		D7DFCF402957934F002ACFEE /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF3F2957934F002ACFEE /* CreateProfileView.swift */; };
 		D7DFCF42295793B3002ACFEE /* SyncContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF41295793B3002ACFEE /* SyncContactsView.swift */; };
+		D7EF1F8A298F0B8700B67D62 /* RoundedCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EF1F89298F0B8700B67D62 /* RoundedCornerExtension.swift */; };
 		D7F7EF5A2963798500024A45 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7EF592963798500024A45 /* ContactsViewModel.swift */; };
 		D7F7EF5C2966215700024A45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7EF5B2966215700024A45 /* User.swift */; };
 		D7F7EF5E2966596F00024A45 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F7EF5D2966596F00024A45 /* DatabaseService.swift */; };
@@ -73,6 +74,7 @@
 		D7DFCF3D295792BB002ACFEE /* VerificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationView.swift; sourceTree = "<group>"; };
 		D7DFCF3F2957934F002ACFEE /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
 		D7DFCF41295793B3002ACFEE /* SyncContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncContactsView.swift; sourceTree = "<group>"; };
+		D7EF1F89298F0B8700B67D62 /* RoundedCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerExtension.swift; sourceTree = "<group>"; };
 		D7F7EF592963798500024A45 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		D7F7EF5B2966215700024A45 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D7F7EF5D2966596F00024A45 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				D7650A19295B8F9600E69A11 /* OnboardingButtonStyle.swift */,
 				D7650A1B2960F7A400E69A11 /* CreateProfileTextfieldStyle.swift */,
 				D7F7EF5F2967B07400024A45 /* TextHelper.swift */,
+				D7EF1F89298F0B8700B67D62 /* RoundedCornerExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -353,6 +356,7 @@
 				D7F7EF5A2963798500024A45 /* ContactsViewModel.swift in Sources */,
 				D78265F32968F6FE00A409C8 /* ImagePicker.swift in Sources */,
 				D7DFCF232953B018002ACFEE /* TabBarButton.swift in Sources */,
+				D7EF1F8A298F0B8700B67D62 /* RoundedCornerExtension.swift in Sources */,
 				D731BBAB294A608500CBE69E /* ChatAppApp.swift in Sources */,
 				D7A4E8492989F354009EFE90 /* ProfilePicView.swift in Sources */,
 				D734965829884B8C00671711 /* ConversationView.swift in Sources */,

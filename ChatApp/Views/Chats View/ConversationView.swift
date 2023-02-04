@@ -14,13 +14,12 @@ struct ConversationView: View {
     @State var chatMessage = ""
     
     var body: some View {
-     
+        
         VStack {
             
             // Chat header
             HStack {
                 VStack (alignment: .leading) {
-                    
                     
                     // Back arrow
                     Button {
@@ -35,7 +34,7 @@ struct ConversationView: View {
                             .foregroundColor(Color("text-header"))
                     }
                     .padding(.bottom, 16)
-                  
+                    
                     // Name
                     Text("Marcus Fenix")
                         .font(Font.chatHeading)
@@ -53,10 +52,11 @@ struct ConversationView: View {
             // Chat log
             ScrollView {
                 
-                VStack {
+                VStack (spacing: 24) {
                     
                     // Their message
                     HStack {
+                        
                         // Message
                         Text("Lorem ipsum dolor sit amet")
                             .font(Font.bodyParagraph)
@@ -64,25 +64,51 @@ struct ConversationView: View {
                             .padding(.vertical, 16)
                             .padding(.horizontal, 24)
                             .background(Color("bubble-secondary"))
+                            .cornerRadius(30, corners: [.topLeft, .topRight, .bottomRight])
                         
                         Spacer()
+                        
                         // Timestamp
                         Text("9:41")
                             .font(Font.smallText)
                             .foregroundColor(Color("text-timestamp"))
+                            .padding(.leading)
                     }
                     
                     // Your message
+                    HStack {
+                        
+                        // Timestamp
+                        Text("9:41")
+                            .font(Font.smallText)
+                            .foregroundColor(Color("text-timestamp"))
+                            .padding(.trailing)
+                        
+                        Spacer()
+                        
+                        // Message
+                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam")
+                            .font(Font.bodyParagraph)
+                            .foregroundColor(Color("text-button"))
+                            .padding(.vertical, 16)
+                            .padding(.horizontal, 24)
+                            .background(Color("bubble-primary"))
+                            .cornerRadius(30, corners: [.topLeft, .topRight, .bottomLeft])
+                        
+                    }
+                    
                     
                 }
+                .padding(.horizontal)
+                .padding(.top, 24)
                 
             }
             .background(Color("background"))
-                
+            
             // Chat message bar
             ZStack {
                 Color("background")
-                    
+                    .ignoresSafeArea()
                 
                 HStack {
                     // Camera button
@@ -95,6 +121,7 @@ struct ConversationView: View {
                             .frame(width: 24, height: 24)
                             .tint(Color("icons-secondary"))
                     }
+
                     // Textfield
                     ZStack {
                         
@@ -114,32 +141,32 @@ struct ConversationView: View {
                             Button {
                                 // Emojis
                             } label: {
-                                Image(systemName: "face.smilling")
+                                Image(systemName: "face.smiling")
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 24, height: 24)
                                     .foregroundColor(Color("text-input"))
-                                
-                            
                             }
                         }
                         .padding(.trailing, 12)
                         
+                        
+
                     }
+                    .frame(height: 44)
                     
                     
                     // Send button
                     Button {
-                        // TODO: Send messagem
+                        // TODO: Send message
                     } label: {
                         Image(systemName: "paperplane.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24, height: 24)
                             .tint(Color("icons-primary"))
-                        
                     }
-                    
+
                 }
                 .padding(.horizontal)
             }
