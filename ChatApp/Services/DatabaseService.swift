@@ -39,7 +39,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-            
+        
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -48,7 +48,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-            
+        
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -83,7 +83,7 @@ class DatabaseService {
         
         // Ensure that the user is logged in
         guard AuthViewModel.isUserLoggedIn() != false else {
-            // User  is not logged in
+            // User is not logged in
             return
         }
         
@@ -101,7 +101,7 @@ class DatabaseService {
         
         // Check if an image is passed through
         if let image = image {
-            
+        
             // Create storage reference
             let storageRef = Storage.storage().reference()
             
@@ -110,7 +110,8 @@ class DatabaseService {
             
             // Check that we were able to convert it to data
             guard imageData != nil else {
-                return            }
+                return
+            }
             
             // Specify the file path and name
             let path = "images/\(UUID().uuidString).jpg"
@@ -120,25 +121,28 @@ class DatabaseService {
                 
                 if error == nil && meta != nil
                 {
-                    
-                    // Get full URL to image
+                    // Get full url to image
                     fileRef.downloadURL { url, error in
                         
                         // Check for errors
                         if url != nil && error == nil {
+                            
                             // Set that image path to the profile
                             doc.setData(["photo": url!.absoluteString], merge: true) { error in
+                                
                                 if error == nil {
                                     // Success, notify caller
                                     completion(true)
                                 }
                             }
+                            
                         }
                         else {
-                            // Wasn't successful in getting the download url of the photo
+                            // Wasn't successful in getting download url for photo
                             completion(false)
                         }
                     }
+                    
                     
                 }
                 else {
@@ -147,16 +151,19 @@ class DatabaseService {
                     completion(false)
                 }
             }
+            
+            
         }
         else {
             // No image was set
             completion(true)
         }
+        
     }
     
     func checkUserProfile(completion: @escaping (Bool) -> Void) {
         
-        // Check that the user is logged in
+        // Check that the user is logged
         guard AuthViewModel.isUserLoggedIn() != false else {
             return
         }
@@ -173,11 +180,14 @@ class DatabaseService {
                 completion(snapshot!.exists)
             }
             else {
-                // TODO: Look into using Result type to indicate failure vs profile status
+                // TODO: Look into using Result type to indicate failure vs profile exists
                 completion(false)
             }
+            
         }
+        
     }
+    
 }
 
 
