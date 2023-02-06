@@ -10,10 +10,29 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 
 
-struct Chat {
+struct Chat: Codable {
     
+    @DocumentID var id: String?
+    
+    var numparticipants: Int
+    
+    var participantids: [String]
+    
+    var lastmsg: String?
+    
+    @ServerTimestamp var updated: Date?
+    
+    var msgs: [ChatMessage]?
+
 }
 
-struct ChatMessage {
+struct ChatMessage: Codable {
     
+    @DocumentID var id: String?
+    
+    var imageurl: String?
+    
+    @ServerTimestamp var timestamp: Date?
+    
+    var senderid: String
 }
