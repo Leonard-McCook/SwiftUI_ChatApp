@@ -11,7 +11,6 @@ import Firebase
 import FirebaseStorage
 import UIKit
 
-
 class DatabaseService {
     
     func getPlatformUsers(localContacts: [CNContact], completion: @escaping ([User]) -> Void) {
@@ -39,7 +38,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-        
+            
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -48,7 +47,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-        
+            
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -101,7 +100,7 @@ class DatabaseService {
         
         // Check if an image is passed through
         if let image = image {
-        
+            
             // Create storage reference
             let storageRef = Storage.storage().reference()
             
@@ -143,7 +142,6 @@ class DatabaseService {
                         }
                     }
                     
-                    
                 }
                 else {
                     
@@ -151,7 +149,6 @@ class DatabaseService {
                     completion(false)
                 }
             }
-            
             
         }
         else {
@@ -188,8 +185,41 @@ class DatabaseService {
         
     }
     
+    // MARK: - Chat Methods
+    
+    /// This method returns all chat documents where logged in user is a participant
+    func getAllChats(completion: @escaping ([Chat]) -> Void)  {
+        
+        // Get a reference to the database
+        let db = Firestore.firestore()
+        
+        // Perform a query against the chat collection for any chats where the user is a participant
+        let chatsQuery = db.collection("chats")
+            .whereField("participantids",
+                        arrayContains: AuthViewModel.getLoggedInUserId())
+        
+        chatsQuery.getDocuments { snapshot, error in
+            
+            if snapshot != nil && error == nil {
+                
+                var chats = [Chat]()
+                
+                // Loop through all the returned chat docs
+                for doc in snapshot!.documents {
+                    
+                    
+                    // Parse the data intoChat strucs
+                    let chat = try? doc.data(as: Chat.self)
+                    
+                    // Add the chat into the array
+                    if let chat = chat {
+                        chats.append(chat)
+                    }
+                }
+                
+                // Return the data
+                completion(chats)
+            }
+        }
+    }
 }
-
-
-
-

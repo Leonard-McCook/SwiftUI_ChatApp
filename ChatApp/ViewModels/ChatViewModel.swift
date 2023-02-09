@@ -12,4 +12,17 @@ class ChatViewModel: ObservableObject {
     
     @Published var chats = [Chat]()
     
+    var databaseService = DatabaseService()
+    
+    func getChats() {
+        
+        // Use the database service to retrieve the chats
+        databaseService.getAllChats { chats in
+            
+            // Set the retrieved data to the chat's property
+            self.chats = chats
+        }
+       
+    }
+    
 }
