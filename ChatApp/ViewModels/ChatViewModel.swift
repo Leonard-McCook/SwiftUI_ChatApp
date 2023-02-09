@@ -14,6 +14,12 @@ class ChatViewModel: ObservableObject {
     
     var databaseService = DatabaseService()
     
+    init() {
+        
+        // Retrieve chats when ChatViewModel is created
+        getChats()
+    }
+    
     func getChats() {
         
         // Use the database service to retrieve the chats

@@ -24,6 +24,7 @@ struct ChatsListView: View {
         else {
             Text("No chats")
         }
+    
     }
 }
 
