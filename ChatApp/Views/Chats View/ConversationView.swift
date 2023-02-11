@@ -15,7 +15,7 @@ struct ConversationView: View {
     
     var body: some View {
         
-        VStack {
+        VStack (spacing: 0) {
             
             // Chat header
             HStack {
@@ -110,7 +110,7 @@ struct ConversationView: View {
                 Color("background")
                     .ignoresSafeArea()
                 
-                HStack {
+                HStack (spacing: 15) {
                     // Camera button
                     Button {
                         // TODO: Show picker
