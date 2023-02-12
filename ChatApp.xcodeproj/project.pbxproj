@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7147DDB2999666900A37893 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7147DDA2999666900A37893 /* DateHelper.swift */; };
 		D731BBAB294A608500CBE69E /* ChatAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D731BBAA294A608500CBE69E /* ChatAppApp.swift */; };
 		D731BBAD294A608500CBE69E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D731BBAC294A608500CBE69E /* RootView.swift */; };
 		D731BBAF294A608900CBE69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D731BBAE294A608900CBE69E /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D7147DDA2999666900A37893 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		D731BBA7294A608500CBE69E /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D731BBAA294A608500CBE69E /* ChatAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppApp.swift; sourceTree = "<group>"; };
 		D731BBAC294A608500CBE69E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				D7650A1B2960F7A400E69A11 /* CreateProfileTextfieldStyle.swift */,
 				D7F7EF5F2967B07400024A45 /* TextHelper.swift */,
 				D7EF1F89298F0B8700B67D62 /* RoundedCornerExtension.swift */,
+				D7147DDA2999666900A37893 /* DateHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				D7F7EF5E2966596F00024A45 /* DatabaseService.swift in Sources */,
 				D7650A1C2960F7A400E69A11 /* CreateProfileTextfieldStyle.swift in Sources */,
 				D7DFCF42295793B3002ACFEE /* SyncContactsView.swift in Sources */,
+				D7147DDB2999666900A37893 /* DateHelper.swift in Sources */,
 				D7DFCF302954C18E002ACFEE /* AppDelegate.swift in Sources */,
 				D7DFCF3829575F2C002ACFEE /* OnboardingContainerView.swift in Sources */,
 				D73A4359294FDEB800BE524C /* CustomTabBar.swift in Sources */,
