@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ConversationView: View {
     
+    @EnvironmentObject var chatViewModel: ChatViewModel
+    
     @Binding var isChatShowing: Bool
     
     @State var chatMessage = ""
@@ -54,49 +56,45 @@ struct ConversationView: View {
                 
                 VStack (spacing: 24) {
                     
-                    // Their message
-                    HStack {
+                    ForEach (chatViewModel.messages) { msg in
                         
-                        // Message
-                        Text("Lorem ipsum dolor sit amet")
-                            .font(Font.bodyParagraph)
-                            .foregroundColor(Color("text-primary"))
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 24)
-                            .background(Color("bubble-secondary"))
-                            .cornerRadius(30, corners: [.topLeft, .topRight, .bottomRight])
+                        let isFromUser = msg.senderid == AuthViewModel.getLoggedInUserId()
                         
-                        Spacer()
-                        
-                        // Timestamp
-                        Text("9:41")
-                            .font(Font.smallText)
-                            .foregroundColor(Color("text-timestamp"))
-                            .padding(.leading)
-                    }
-                    
-                    // Your message
-                    HStack {
-                        
-                        // Timestamp
-                        Text("9:41")
-                            .font(Font.smallText)
-                            .foregroundColor(Color("text-timestamp"))
-                            .padding(.trailing)
-                        
-                        Spacer()
-                        
-                        // Message
-                        Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam")
-                            .font(Font.bodyParagraph)
-                            .foregroundColor(Color("text-button"))
-                            .padding(.vertical, 16)
-                            .padding(.horizontal, 24)
-                            .background(Color("bubble-primary"))
-                            .cornerRadius(30, corners: [.topLeft, .topRight, .bottomLeft])
+                        // Dynamic message
+                        HStack {
+                            
+                            if isFromUser {
+                                // Timestamp
+                                Text("9:41")
+                                    .font(Font.smallText)
+                                    .foregroundColor(Color("text-timestamp"))
+                                    .padding(.trailing)
+                                
+                                Spacer()
+                            }
+                            
+                            // Message
+                            Text(msg.msg)
+                                .font(Font.bodyParagraph)
+                                .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
+                                .padding(.vertical, 16)
+                                .padding(.horizontal, 24)
+                                .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
+                                .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                            
+                            if !isFromUser {
+                                
+                                Spacer()
+                                
+                                Text("9:41")
+                                    .font(Font.smallText)
+                                    .foregroundColor(Color("text-timestamp"))
+                                    .padding(.leading)
+                            }
+                            
+                        }
                         
                     }
-                    
                     
                 }
                 .padding(.horizontal)
@@ -121,7 +119,7 @@ struct ConversationView: View {
                             .frame(width: 24, height: 24)
                             .tint(Color("icons-secondary"))
                     }
-
+                    
                     // Textfield
                     ZStack {
                         
@@ -151,14 +149,22 @@ struct ConversationView: View {
                         .padding(.trailing, 12)
                         
                         
-
+                        
                     }
                     .frame(height: 44)
                     
                     
                     // Send button
                     Button {
-                        // TODO: Send message
+                        
+                        // TODO: Clean up text msg
+                        
+                        // Send message
+                        chatViewModel.sendMessage(msg: chatMessage)
+                        
+                        // Clear textbox
+                        chatMessage = ""
+                        
                     } label: {
                         Image(systemName: "paperplane.fill")
                             .resizable()
@@ -166,11 +172,15 @@ struct ConversationView: View {
                             .frame(width: 24, height: 24)
                             .tint(Color("icons-primary"))
                     }
-
+                    
                 }
                 .padding(.horizontal)
             }
             .frame(height: 76)
+        }
+        .onAppear {
+            // Call chat view model to retrieve all chat messages
+            chatViewModel.getMessages()
         }
         
         

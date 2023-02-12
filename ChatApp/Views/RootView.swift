@@ -25,16 +25,17 @@ struct RootView: View {
             VStack {
                 
                 switch selectedTab {
+                    
                 case .chats:
-                    ChatsListView()
+                    ChatsListView(isChatShowing: $isChatShowing)
                 case .contacts:
-                    ContactsListView(isChatShowing: $isChatShowing)            }
+                    ContactsListView(isChatShowing: $isChatShowing)
+                }
                 
                 Spacer()
                 
                 CustomTabBar(selectedTab: $selectedTab)
             }
-            
         }
         .fullScreenCover(isPresented: $isOnboarding) {
             // On dismiss
@@ -42,13 +43,11 @@ struct RootView: View {
             // The onboarding sequence
             OnboardingContainerView(isOnboarding: $isOnboarding)
         }
-        .fullScreenCover(isPresented: $isOnboarding, onDismiss: nil) {
-        
+        .fullScreenCover(isPresented: $isChatShowing, onDismiss: nil) {
+            
             // The conversation view
             ConversationView(isChatShowing: $isChatShowing)
         }
-        
-        
         
     }
     

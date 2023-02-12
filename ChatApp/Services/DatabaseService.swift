@@ -38,7 +38,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-            
+        
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -47,7 +47,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-            
+        
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -100,7 +100,7 @@ class DatabaseService {
         
         // Check if an image is passed through
         if let image = image {
-            
+        
             // Create storage reference
             let storageRef = Storage.storage().reference()
             
@@ -142,6 +142,7 @@ class DatabaseService {
                         }
                     }
                     
+                    
                 }
                 else {
                     
@@ -149,6 +150,7 @@ class DatabaseService {
                     completion(false)
                 }
             }
+            
             
         }
         else {
@@ -184,11 +186,11 @@ class DatabaseService {
         }
         
     }
-    
+ 
     // MARK: - Chat Methods
     
-    /// This method returns all chat documents where logged in user is a participant
-    func getAllChats(completion: @escaping ([Chat]) -> Void)  {
+    /// This method returns all chat documents where the logged in user is a participant
+    func getAllChats(completion: @escaping ([Chat]) -> Void) {
         
         // Get a reference to the database
         let db = Firestore.firestore()
@@ -207,8 +209,7 @@ class DatabaseService {
                 // Loop through all the returned chat docs
                 for doc in snapshot!.documents {
                     
-                    
-                    // Parse the data intoChat strucs
+                    // Parse the data into Chat structs
                     let chat = try? doc.data(as: Chat.self)
                     
                     // Add the chat into the array
@@ -229,9 +230,9 @@ class DatabaseService {
     /// This method returns all messages for a given chat
     func getAllMessages(chat: Chat, completion: @escaping ([ChatMessage]) -> Void) {
         
-        // Check that the ID is not nil
+        // Check that the id is not nil
         guard chat.id != nil else {
-            //Can't fetch data
+            // Can't fetch data
             completion([ChatMessage]())
             return
         }
@@ -250,7 +251,7 @@ class DatabaseService {
             
             if snapshot != nil && error == nil {
                 
-                // Loop through the msg documents and create chat message instances
+                // Loop through the msg documents and create ChatMessage instances
                 var messages = [ChatMessage]()
                 
                 for doc in snapshot!.documents {
@@ -268,6 +269,34 @@ class DatabaseService {
             else {
                 print("Error in database retrieval")
             }
+            
         }
+        
+    
+        
+        
+        
+        
+    }
+    
+    /// Send a message to the database
+    func sendMessage(msg: String, chat: Chat) {
+        
+        // Check that it's a valid chat
+        guard chat.id != nil else {
+            return
+        }
+        
+        // Get reference to database
+        let db = Firestore.firestore()
+        
+        // Add msg document
+        db.collection("chats")
+            .document(chat.id!)
+            .collection("msgs")
+            .addDocument(data: ["imageurl": "",
+                                "msg": msg,
+                                "senderid": AuthViewModel.getLoggedInUserId(),
+                                "timestamp": Date()])
     }
 }
