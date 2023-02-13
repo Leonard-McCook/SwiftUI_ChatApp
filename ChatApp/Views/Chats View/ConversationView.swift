@@ -65,7 +65,7 @@ struct ConversationView: View {
                             
                             if isFromUser {
                                 // Timestamp
-                                Text("9:41")
+                                Text(DateHelper.chatTimestampFrom(date: msg.timestamp))
                                     .font(Font.smallText)
                                     .foregroundColor(Color("text-timestamp"))
                                     .padding(.trailing)
@@ -86,7 +86,7 @@ struct ConversationView: View {
                                 
                                 Spacer()
                                 
-                                Text("9:41")
+                                Text(DateHelper.chatTimestampFrom(date: msg.timestamp))
                                     .font(Font.smallText)
                                     .foregroundColor(Color("text-timestamp"))
                                     .padding(.leading)
