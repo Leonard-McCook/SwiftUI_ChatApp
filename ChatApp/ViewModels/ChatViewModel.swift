@@ -59,6 +59,22 @@ class ChatViewModel: ObservableObject {
         databaseService.sendMessage(msg: msg, chat: selectedChat!)
         
     }
+    
+    /// Takes in a list of user ids, removes the user from that list and returns the remaining ids
+    func getParticipantIds() -> [String] {
+        
+        // Check that we have a selected chat
+        guard selectedChat != nil else {
+            return [String]()
+        }
+        
+        // Filter out the user's id
+        let ids = selectedChat!.participantids.filter { id in
+            id != AuthViewModel.getLoggedInUserId()
+        }
+        
+        return ids
+    }
 }
 
 

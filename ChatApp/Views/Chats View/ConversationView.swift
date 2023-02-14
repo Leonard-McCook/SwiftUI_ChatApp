@@ -10,10 +10,12 @@ import SwiftUI
 struct ConversationView: View {
     
     @EnvironmentObject var chatViewModel: ChatViewModel
+    @EnvironmentObject var contactsViewModel: ContactsViewModel
     
     @Binding var isChatShowing: Bool
     
     @State var chatMessage = ""
+    @State var participants = [User]()
     
     var body: some View {
         
@@ -38,15 +40,27 @@ struct ConversationView: View {
                     .padding(.bottom, 16)
                     
                     // Name
-                    Text("Marcus Fenix")
-                        .font(Font.chatHeading)
-                        .foregroundColor(Color("text-header"))
+                    if participants.count > 0 {
+                        
+                        let participant = participants.first
+                        
+                        Text("\(participant?.firstname ?? "") \(participant?.lastname ?? "")")
+                            .font(Font.chatHeading)
+                            .foregroundColor(Color("text-header"))
+                    }
+                    
                 }
                 
                 Spacer()
                 
                 // Profile image
-                ProfilePicView(user: User())
+                if participants.count > 0 {
+                    
+                    let participant = participants.first
+                    
+                    ProfilePicView(user: participant!)
+                }
+                
             }
             .padding(.horizontal)
             .frame(height: 104)
@@ -181,9 +195,11 @@ struct ConversationView: View {
         .onAppear {
             // Call chat view model to retrieve all chat messages
             chatViewModel.getMessages()
+            
+            // Try to get the other participants as User instances
+            let ids = chatViewModel.getParticipantIds()
+            self.participants = contactsViewModel.getParticipants(ids: ids)
         }
-        
-        
     }
 }
 
