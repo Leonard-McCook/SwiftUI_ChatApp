@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D7147DDB2999666900A37893 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7147DDA2999666900A37893 /* DateHelper.swift */; };
+		D7147DDD299F140300A37893 /* ChatListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7147DDC299F140300A37893 /* ChatListRow.swift */; };
 		D731BBAB294A608500CBE69E /* ChatAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D731BBAA294A608500CBE69E /* ChatAppApp.swift */; };
 		D731BBAD294A608500CBE69E /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D731BBAC294A608500CBE69E /* RootView.swift */; };
 		D731BBAF294A608900CBE69E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D731BBAE294A608900CBE69E /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		D7147DDA2999666900A37893 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		D7147DDC299F140300A37893 /* ChatListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListRow.swift; sourceTree = "<group>"; };
 		D731BBA7294A608500CBE69E /* ChatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D731BBAA294A608500CBE69E /* ChatAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppApp.swift; sourceTree = "<group>"; };
 		D731BBAC294A608500CBE69E /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 			children = (
 				D7FEF57D297B7ECB00970FC4 /* ChatsListView.swift */,
 				D734965729884B8C00671711 /* ConversationView.swift */,
+				D7147DDC299F140300A37893 /* ChatListRow.swift */,
 			);
 			path = "Chats View";
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				D7FEF57E297B7ECB00970FC4 /* ChatsListView.swift in Sources */,
 				D7F7EF602967B07400024A45 /* TextHelper.swift in Sources */,
 				D7F7EF5C2966215700024A45 /* User.swift in Sources */,
+				D7147DDD299F140300A37893 /* ChatListRow.swift in Sources */,
 				D7DFCF3A29579283002ACFEE /* WelcomeView.swift in Sources */,
 				D7DFCF332954F8B0002ACFEE /* AuthViewModel.swift in Sources */,
 				D7DFCF402957934F002ACFEE /* CreateProfileView.swift in Sources */,
