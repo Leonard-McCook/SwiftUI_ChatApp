@@ -10,6 +10,7 @@ import SwiftUI
 struct ChatsListView: View {
     
     @EnvironmentObject var chatViewModel: ChatViewModel
+    @EnvironmentObject var contactsViewModel: ContactsViewModel
     
     @Binding var isChatShowing: Bool
     
@@ -32,8 +33,11 @@ struct ChatsListView: View {
                         .tint(Color("icons-secondary"))
                 }
                 
+                
             }
             .padding(.top, 20)
+            .padding(.horizontal)
+            
             
             // Chat List
             if chatViewModel.chats.count > 0 {
@@ -49,10 +53,18 @@ struct ChatsListView: View {
                         isChatShowing = true
                         
                     } label: {
-                        Text(chat.id ?? "empty chat id")
+                        
+                        ChatListRow(chat: chat,
+                                    otherParticipants: contactsViewModel.getParticipants(ids: chat.participantids))
                     }
+                    .buttonStyle(.plain)
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
                     
                 }
+                .listStyle(.plain)
+                
+                
                 
             }
             else {
@@ -72,9 +84,8 @@ struct ChatsListView: View {
                 Spacer()
             }
         }
-        .padding(.horizontal)
-            
-            
+       
+ 
     }
 }
 
