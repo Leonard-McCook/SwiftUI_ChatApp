@@ -200,6 +200,11 @@ struct ConversationView: View {
             let ids = chatViewModel.getParticipantIds()
             self.participants = contactsViewModel.getParticipants(ids: ids)
         }
+        .onDisappear {
+            
+            // Do any necesary clean up before conversation view disappears
+            chatViewModel.conversationViewCleanup()
+        }
     }
 }
 

@@ -337,8 +337,7 @@ class DatabaseService {
     func detachConversationListeners() {
         for listener in conversationViewListeners {
             listener.remove()
-            
-            
+   
         }
     }
 }

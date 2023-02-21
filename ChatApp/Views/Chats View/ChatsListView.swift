@@ -17,6 +17,7 @@ struct ChatsListView: View {
     var body: some View {
         
         VStack {
+            
             // Heading
             HStack {
                 Text("Chats")
