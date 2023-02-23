@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SyncContactsView: View {
+    
+    @EnvironmentObject var contactsViewModel: ContactsViewModel
 
     @Binding var isOnboarding: Bool
     
@@ -43,6 +45,9 @@ struct SyncContactsView: View {
             
         }
         .padding(.horizontal)
+        .onAppear {
+            contactsViewModel.getLocalContacts()
+        }
         
     }
         
