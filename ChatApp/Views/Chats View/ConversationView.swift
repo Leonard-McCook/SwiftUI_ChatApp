@@ -3,7 +3,6 @@
 //  ChatApp
 //
 //  Created by Leonard McCook-Carr on 1/30/23.
-//
 
 import SwiftUI
 
@@ -66,56 +65,69 @@ struct ConversationView: View {
             .frame(height: 104)
             
             // Chat log
-            ScrollView {
+            
+            ScrollViewReader { proxy in
                 
-                VStack (spacing: 24) {
+                ScrollView {
                     
-                    ForEach (chatViewModel.messages) { msg in
+                    VStack (spacing: 24) {
                         
-                        let isFromUser = msg.senderid == AuthViewModel.getLoggedInUserId()
-                        
-                        // Dynamic message
-                        HStack {
+                        ForEach (Array(chatViewModel.messages.enumerated()), id: \.element) { index, msg in
                             
-                            if isFromUser {
-                                // Timestamp
-                                Text(DateHelper.chatTimestampFrom(date: msg.timestamp))
-                                    .font(Font.smallText)
-                                    .foregroundColor(Color("text-timestamp"))
-                                    .padding(.trailing)
+                            let isFromUser = msg.senderid == AuthViewModel.getLoggedInUserId()
+                            
+                            // Dynamic message
+                            HStack {
                                 
-                                Spacer()
+                                if isFromUser {
+                                    // Timestamp
+                                    Text(DateHelper.chatTimestampFrom(date: msg.timestamp))
+                                        .font(Font.smallText)
+                                        .foregroundColor(Color("text-timestamp"))
+                                        .padding(.trailing)
+                                    
+                                    Spacer()
+                                }
+                                
+                                // Message
+                                Text(msg.msg)
+                                    .font(Font.bodyParagraph)
+                                    .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
+                                    .padding(.vertical, 16)
+                                    .padding(.horizontal, 24)
+                                    .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
+                                    .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                                
+                                if !isFromUser {
+                                    
+                                    Spacer()
+                                    
+                                    Text(DateHelper.chatTimestampFrom(date: msg.timestamp))
+                                        .font(Font.smallText)
+                                        .foregroundColor(Color("text-timestamp"))
+                                        .padding(.leading)
+                                }
+                                
                             }
+                            .id(index)
                             
-                            // Message
-                            Text(msg.msg)
-                                .font(Font.bodyParagraph)
-                                .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
-                                .padding(.vertical, 16)
-                                .padding(.horizontal, 24)
-                                .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
-                                .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
-                            
-                            if !isFromUser {
-                                
-                                Spacer()
-                                
-                                Text(DateHelper.chatTimestampFrom(date: msg.timestamp))
-                                    .font(Font.smallText)
-                                    .foregroundColor(Color("text-timestamp"))
-                                    .padding(.leading)
-                            }
                             
                         }
                         
                     }
+                    .padding(.horizontal)
+                    .padding(.top, 24)
                     
                 }
-                .padding(.horizontal)
-                .padding(.top, 24)
-                
+                .background(Color("background"))
+                .onChange(of: chatViewModel.messages.count) { newCount in
+                    
+                    withAnimation {
+                        proxy.scrollTo(newCount - 1)
+                    }
+                }
             }
-            .background(Color("background"))
+            
             
             // Chat message bar
             ZStack {

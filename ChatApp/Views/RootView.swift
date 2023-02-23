@@ -65,9 +65,7 @@ struct RootView: View {
                 
             }
         }
-        
     }
-    
 }
 
 struct RootView_Previews: PreviewProvider {
