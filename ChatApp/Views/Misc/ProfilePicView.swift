@@ -30,6 +30,11 @@ struct ProfilePicView: View {
             }
             else {
                 
+                // Check image cache, if it exists use that
+                
+                // If not in cache, download it
+                
+                
                 // Create URL from user photo url
                 let photoUrl = URL(string: user.photo ?? "")
                 
@@ -49,6 +54,10 @@ struct ProfilePicView: View {
                             .clipShape(Circle())
                             .scaledToFill()
                             .clipped()
+                            .onAppear {
+                                // Save this image into cache
+                                
+                            }
                         
                     case .failure:
                         // Couldn't fetch profile photo

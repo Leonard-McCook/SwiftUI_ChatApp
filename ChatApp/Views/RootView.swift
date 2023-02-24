@@ -12,7 +12,7 @@ struct RootView: View {
     // For detecting when the app state changes
     @Environment(\.scenePhase) var scenePhase
     
-    @Environment var contactsViewModel: ContactsViewModel
+    @EnvironmentObject var contactsViewModel: ContactsViewModel
     
     @EnvironmentObject var chatViewModel: ChatViewModel
     

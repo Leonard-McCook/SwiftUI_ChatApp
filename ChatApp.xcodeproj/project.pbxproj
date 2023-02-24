@@ -16,6 +16,7 @@
 		D734965829884B8C00671711 /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D734965729884B8C00671711 /* ConversationView.swift */; };
 		D73A4356294E5AB400BE524C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A4355294E5AB400BE524C /* Fonts.swift */; };
 		D73A4359294FDEB800BE524C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A4358294FDEB800BE524C /* CustomTabBar.swift */; };
+		D74BDC6229A97376003C4569 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74BDC6129A97376003C4569 /* CacheService.swift */; };
 		D7527B0E2992F91300045BF4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7527B0D2992F91300045BF4 /* ChatViewModel.swift */; };
 		D764E0E2294D00220005D3A4 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */; };
 		D764E0E3294D00220005D3A4 /* LexendDeca-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */; };
@@ -60,6 +61,7 @@
 		D734965729884B8C00671711 /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
 		D73A4355294E5AB400BE524C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		D73A4358294FDEB800BE524C /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		D74BDC6129A97376003C4569 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		D7527B0D2992F91300045BF4 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
 		D764E0E0294D00220005D3A4 /* LexendDeca-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Bold.ttf"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				D7F7EF5D2966596F00024A45 /* DatabaseService.swift */,
+				D74BDC6129A97376003C4569 /* CacheService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				D7FEF57E297B7ECB00970FC4 /* ChatsListView.swift in Sources */,
 				D7F7EF602967B07400024A45 /* TextHelper.swift in Sources */,
 				D7F7EF5C2966215700024A45 /* User.swift in Sources */,
+				D74BDC6229A97376003C4569 /* CacheService.swift in Sources */,
 				D7147DDD299F140300A37893 /* ChatListRow.swift in Sources */,
 				D7DFCF3A29579283002ACFEE /* WelcomeView.swift in Sources */,
 				D7DFCF332954F8B0002ACFEE /* AuthViewModel.swift in Sources */,
