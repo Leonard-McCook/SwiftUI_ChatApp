@@ -13,6 +13,12 @@ struct ConversationView: View {
     
     @Binding var isChatShowing: Bool
     
+    @State var selectedImage: UIImage?
+    @State var isPickerShowing = false
+    
+    @State var isSourceMenuShowing = false
+    @State var source: UIImagePickerController.SourceType = .photoLibrary
+    
     @State var chatMessage = ""
     @State var participants = [User]()
     
@@ -137,7 +143,9 @@ struct ConversationView: View {
                 HStack (spacing: 15) {
                     // Camera button
                     Button {
-                        // TODO: Show picker
+                        // Show picker
+                        isSourceMenuShowing = true
+                        
                     } label: {
                         Image(systemName: "camera")
                             .resizable()
@@ -218,6 +226,40 @@ struct ConversationView: View {
             
             // Do any necesary clean up before conversation view disappears
             chatViewModel.conversationViewCleanup()
+        }
+        .confirmationDialog("From where?", isPresented: $isSourceMenuShowing, actions: {
+            
+            Button {
+                // Set the source to photo library
+                self.source = .photoLibrary
+                
+                // Show the image picker
+                isPickerShowing = true
+                
+            } label: {
+                Text("Photo Library")
+            }
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                
+                Button {
+                    // Set the source to camera
+                    self.source = .camera
+                    
+                    // Show the image picker
+                    isPickerShowing = true
+                } label: {
+                    Text("Take Photo")
+                }
+            }
+            
+            
+        })
+        .sheet(isPresented: $isPickerShowing) {
+            
+            // Show the image picker
+            ImagePicker(selectedImage: $selectedImage,
+                        isPickerShowing: $isPickerShowing, source: self.source)
         }
     }
 }
