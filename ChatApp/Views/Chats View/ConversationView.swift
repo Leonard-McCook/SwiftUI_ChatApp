@@ -95,14 +95,78 @@ struct ConversationView: View {
                                     Spacer()
                                 }
                                 
-                                // Message
-                                Text(msg.msg)
-                                    .font(Font.bodyParagraph)
-                                    .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
-                                    .padding(.vertical, 16)
-                                    .padding(.horizontal, 24)
-                                    .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
-                                    .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                                if msg.imageurl != "" {
+                                    // Photo Message
+                                    
+                                    // Check image cache, if it exists use that
+                                    if let cachedImage = CacheService.getImage(forKey: msg.imageurl!) {
+                                        
+                                        // Image is in cache so lets use it
+                                        cachedImage
+                                            .resizable()
+                                            .scaledToFill()
+                                            .padding(.vertical, 16)
+                                            .padding(.horizontal, 24)
+                                            .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
+                                            .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                                            
+                                    }
+                                    else {
+                                        // Download the image
+                                        // Create URL from msg photo url
+                                        let photoUrl = URL(string: msg.imageurl!)
+                                        
+                                        // Profile image
+                                        AsyncImage(url: photoUrl) { phase in
+                                            
+                                            switch phase {
+                                                
+                                            case .empty:
+                                                // Currently fetching
+                                                ProgressView()
+                                                
+                                            case .success(let image):
+                                                // Display the fetched image
+                                                image
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .padding(.vertical, 16)
+                                                    .padding(.horizontal, 24)
+                                                    .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
+                                                    .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                                                    .onAppear {
+                                                        
+                                                        // Save this image to cache
+                                                        CacheService.setImage(image: image, forKey: msg.imageurl!)
+                                                    }
+                                                
+                                            case .failure:
+                                                // Couldn't fetch profile photo
+                                                // Display circle with first letter of first name
+                                                Text("Couldn't load image")
+                                                    .font(Font.bodyParagraph)
+                                                    .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
+                                                    .padding(.vertical, 16)
+                                                    .padding(.horizontal, 24)
+                                                    .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
+                                                    .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                                            }
+                                            
+                                        }
+                                        
+                                    }
+                                    
+                                }
+                                else {
+                                    // Tex Message
+                                    Text(msg.msg)
+                                        .font(Font.bodyParagraph)
+                                        .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
+                                        .padding(.vertical, 16)
+                                        .padding(.horizontal, 24)
+                                        .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
+                                        .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                                }
                                 
                                 if !isFromUser {
                                     
@@ -161,7 +225,7 @@ struct ConversationView: View {
                             .cornerRadius(50)
                         
                         if selectedImage != nil {
-                           
+                            
                             // Display image in message bar
                             Text("Image")
                                 .foregroundColor(Color("text-input"))
