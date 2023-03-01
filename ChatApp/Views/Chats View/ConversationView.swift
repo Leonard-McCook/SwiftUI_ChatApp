@@ -134,7 +134,6 @@ struct ConversationView: View {
                 }
             }
             
-            
             // Chat message bar
             ZStack {
                 Color("background")
@@ -161,27 +160,54 @@ struct ConversationView: View {
                             .foregroundColor(Color("date-pill"))
                             .cornerRadius(50)
                         
-                        TextField("Type your message", text: $chatMessage)
-                            .foregroundColor(Color("text-input"))
-                            .font(Font.bodyParagraph)
-                            .padding(10)
-                        
-                        // Emoji button
-                        HStack {
-                            Spacer()
+                        if selectedImage != nil {
+                           
+                            // Display image in message bar
+                            Text("Image")
+                                .foregroundColor(Color("text-input"))
+                                .font(Font.bodyParagraph)
+                                .padding(10)
                             
-                            Button {
-                                // Emojis
-                            } label: {
-                                Image(systemName: "face.smiling")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 24, height: 24)
-                                    .foregroundColor(Color("text-input"))
+                            // Delete button
+                            HStack {
+                                Spacer()
+                                
+                                Button {
+                                    // Delete the image
+                                    selectedImage = nil
+                                } label: {
+                                    Image(systemName: "multiply.circle.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 24, height: 24)
+                                        .foregroundColor(Color("text-input"))
+                                }
                             }
+                            .padding(.trailing, 12)
                         }
-                        .padding(.trailing, 12)
-                        
+                        else {
+                            
+                            TextField("Type your message", text: $chatMessage)
+                                .foregroundColor(Color("text-input"))
+                                .font(Font.bodyParagraph)
+                                .padding(10)
+                            
+                            // Emoji button
+                            HStack {
+                                Spacer()
+                                
+                                Button {
+                                    // Emojis
+                                } label: {
+                                    Image(systemName: "face.smiling")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 24, height: 24)
+                                        .foregroundColor(Color("text-input"))
+                                }
+                            }
+                            .padding(.trailing, 12)
+                        }
                         
                         
                     }
@@ -191,14 +217,28 @@ struct ConversationView: View {
                     // Send button
                     Button {
                         
-                        // Clean up text msg
-                        chatMessage = chatMessage.trimmingCharacters(in: .whitespacesAndNewlines)
+                        // Check if image is selected, if so send image
                         
-                        // Send message
-                        chatViewModel.sendMessage(msg: chatMessage)
-                        
-                        // Clear textbox
-                        chatMessage = ""
+                        if selectedImage != nil {
+                            
+                            // Send image message
+                            chatViewModel.sendPhotoMessage(image: selectedImage!)
+                            
+                            // Clear image
+                            selectedImage = nil
+                        }
+                        else {
+                            // Send text message
+                            
+                            // Clean up text msg
+                            chatMessage = chatMessage.trimmingCharacters(in: .whitespacesAndNewlines)
+                            
+                            // Send message
+                            chatViewModel.sendMessage(msg: chatMessage)
+                            
+                            // Clear textbox
+                            chatMessage = ""
+                        }
                         
                     } label: {
                         Image(systemName: "paperplane.fill")
@@ -207,7 +247,7 @@ struct ConversationView: View {
                             .frame(width: 24, height: 24)
                             .tint(Color("icons-primary"))
                     }
-                    .disabled(chatMessage.trimmingCharacters(in: .whitespacesAndNewlines) == "")
+                    .disabled(chatMessage.trimmingCharacters(in: .whitespacesAndNewlines) == "" && selectedImage == nil)
                     
                 }
                 .padding(.horizontal)
