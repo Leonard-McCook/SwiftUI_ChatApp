@@ -143,13 +143,9 @@ struct ConversationView: View {
                                             case .failure:
                                                 // Couldn't fetch profile photo
                                                 // Display circle with first letter of first name
-                                                Text("Couldn't load image")
-                                                    .font(Font.bodyParagraph)
-                                                    .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
-                                                    .padding(.vertical, 16)
-                                                    .padding(.horizontal, 24)
-                                                    .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
-                                                    .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                                                
+                                                ConversationTextMessage(msg: "Couldn't load image",
+                                                                        isFromUser: isFromUser)
                                             }
                                             
                                         }
@@ -159,13 +155,8 @@ struct ConversationView: View {
                                 }
                                 else {
                                     // Tex Message
-                                    Text(msg.msg)
-                                        .font(Font.bodyParagraph)
-                                        .foregroundColor(isFromUser ? Color("text-button") : Color("text-primary"))
-                                        .padding(.vertical, 16)
-                                        .padding(.horizontal, 24)
-                                        .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
-                                        .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
+                                    ConversationTextMessage(msg: msg.msg,
+                                                            isFromUser: isFromUser)
                                 }
                                 
                                 if !isFromUser {
