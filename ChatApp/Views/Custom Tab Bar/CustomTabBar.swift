@@ -17,6 +17,8 @@ struct CustomTabBar: View {
     @Binding var selectedTab: Tabs
     @Binding var isChatShowing: Bool
     
+    @EnvironmentObject var chatViewModel: ChatViewModel
+    
     var body: some View {
         
         HStack (alignment: .center) {
@@ -35,6 +37,9 @@ struct CustomTabBar: View {
             .tint(Color("icons-secondary"))
             
             Button {
+                // Clear the selected chay
+                chatViewModel.clearSelectedChat()
+                
                 // Show conversation view for new message
                 isChatShowing = true
                 

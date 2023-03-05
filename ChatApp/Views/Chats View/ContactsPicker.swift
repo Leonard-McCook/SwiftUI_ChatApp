@@ -84,6 +84,10 @@ struct ContactsPicker: View {
                 .frame(height: 56)
             }
         }
+        .onAppear {
+            // Clear any filters
+            contactsViewModel.filterContacts(filterBy: "")
+        }
     }
 }
 

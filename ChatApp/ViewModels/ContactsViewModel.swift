@@ -90,6 +90,7 @@ class ContactsViewModel: ObservableObject {
         })
     }
     
+    
     /// Given a list of user ids, return a list of user object that have the same user ids
     func getParticipants(ids: [String]) -> [User] {
         
