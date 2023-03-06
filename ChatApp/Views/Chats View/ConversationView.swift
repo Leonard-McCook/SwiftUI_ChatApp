@@ -68,11 +68,32 @@ struct ConversationView: View {
                             // Name
                             if participants.count > 0 {
                                 
-                                let participant = participants.first
-                                
-                                Text("\(participant?.firstname ?? "") \(participant?.lastname ?? "")")
-                                    .font(Font.chatHeading)
-                                    .foregroundColor(Color("text-header"))
+                                Group {
+                                    let participant = participants.first
+                                    
+                                    if participants.count == 1 {
+                                        Text("\(participant?.firstname ?? "") \(participant?.lastname ?? "")")
+                                            .font(Font.chatHeading)
+                                            .foregroundColor(Color("text-header"))
+                                    }
+                                    else if participants.count == 2 {
+                                        
+                                        let participant2 = participants[1]
+                                        
+                                        Text("\(participant?.firstname ?? ""), \(participant2.firstname ?? "")")
+                                            .font(Font.chatHeading)
+                                            .foregroundColor(Color("text-header"))
+                                    }
+                                    else if participants.count > 2 {
+                                        
+                                        let participant2 = participants[1]
+                                        
+                                        Text("\(participant?.firstname ?? ""), \(participant2.firstname ?? "") + \(participants.count - 2) others ")
+
+                                    }
+                                }
+                                .font(Font.chatHeading)
+                                .foregroundColor(Color("text-header"))
                             }
                             else {
                                 // New message

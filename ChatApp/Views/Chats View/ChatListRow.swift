@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChatListRow: View {
+struct ChatsListRow: View {
     
     var chat: Chat
     
@@ -21,17 +21,48 @@ struct ChatListRow: View {
             let participant = otherParticipants?.first
             
             // Profile Image of participants
-            if participant != nil {
-                ProfilePicView(user: participant!)
+            if otherParticipants != nil && otherParticipants!.count == 1 {
+                
+                // Display profile image of single participant
+                if participant != nil {
+                    ProfilePicView(user: participant!)
+                }
+            }
+            else if otherParticipants != nil && otherParticipants!.count > 1 {
+                
+                // Display group profile image
+                GroupProfilePicView(users: otherParticipants!)
             }
             
             VStack (alignment: .leading, spacing: 4) {
                 // Name
-                Text(participant == nil ? "Unknown" : "\(participant!.firstname ?? "") \(participant!.lastname ?? "")")
+                if let otherParticipants = otherParticipants {
+                    
+                    Group {
+                        if otherParticipants.count == 1 {
+                            
+                            Text("\(participant!.firstname ?? "") \(participant!.lastname ?? "")")
+                            
+                        }
+                        else if otherParticipants.count == 2 {
+                            
+                            let participant2 = otherParticipants[1]
+                            
+                            Text("\(participant!.firstname ?? ""), \(participant2.firstname ?? "")")
+                            
+                        }
+                        else if otherParticipants.count > 2 {
+                            
+                            let participant2 = otherParticipants[1]
+                            
+                            Text("\(participant!.firstname ?? ""), \(participant2.firstname ?? "") + \(otherParticipants.count - 2) others")
+                            
+                        }
+                    }
                     .font(Font.button)
                     .foregroundColor(Color("text-primary"))
-                
-                // Last message
+                }
+                // last message
                 Text(chat.lastmsg ?? "")
                     .font(Font.bodyParagraph)
                     .foregroundColor(Color("text-input"))
@@ -43,9 +74,8 @@ struct ChatListRow: View {
             // Timestamp
             Text(chat.updated == nil ? "" :
                     DateHelper.chatTimestampFrom(date: chat.updated!))
-                .font(Font.bodyParagraph)
-                .foregroundColor(Color("text-input"))
-            
+            .font(Font.bodyParagraph)
+            .foregroundColor(Color("text-input"))
         }
         
     }
