@@ -35,22 +35,33 @@ struct ContactsPicker: View {
                         
                         ZStack {
                             ContactRow(user: user)
-                                
+                            
                             HStack {
                                 Spacer()
                                 
                                 Button {
                                     // Toggle the user to ne selected or not
                                     if isSelectedContact {
+                                        
+                                        
+                                        // Find index of this contact
+                                        let index = selectedContacts.firstIndex(of: user)
+                                        
                                         // Remove this contact from the selected pool
-                                        selectedContacts.removeAll()
+                                        if let index = index {
+                                            selectedContacts.remove(at: index )
+                                        }
                                     }
                                     else {
-                                        // Remove the other contacts first
-                                        selectedContacts.removeAll()
                                         
-                                        // Select this contact
-                                        selectedContacts.append(user)
+                                        // Impose the limit of 3
+                                        if selectedContacts.count < 3 {
+                                            // Select this contact
+                                            selectedContacts.append(user)
+                                        }
+                                        else  {
+                                            // TODO: Show message to indicate limit reached
+                                        }
                                     }
                                     
                                 } label: {
