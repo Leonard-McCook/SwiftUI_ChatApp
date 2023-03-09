@@ -16,11 +16,13 @@ struct GroupProfilePicView: View {
         
         ZStack {
             
-            ForEach(users) { user in
+            ForEach (Array(users.enumerated()),id:\.element) { index, user in
+                
                 ProfilePicView(user: user)
-                    .offset(x: CGFloat(offset))
+                    .offset(x: CGFloat(offset * index))
             }
         }
+        // TODO: offset by half the total offset in the direction
     }
 }
 

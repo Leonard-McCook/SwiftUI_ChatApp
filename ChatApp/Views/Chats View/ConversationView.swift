@@ -92,8 +92,7 @@ struct ConversationView: View {
 
                                     }
                                 }
-                                .font(Font.chatHeading)
-                                .foregroundColor(Color("text-header"))
+                                
                             }
                             else {
                                 // New message
@@ -106,11 +105,15 @@ struct ConversationView: View {
                         Spacer()
                         
                         // Profile image
-                        if participants.count > 0 {
+                        if participants.count == 1 {
                             
                             let participant = participants.first
-                            
+                            // Display a single profile image
                             ProfilePicView(user: participant!)
+                        }
+                        else if participants.count > 1 {
+                            // Display group profile images
+                            GroupProfilePicView(users: participants)
                         }
                         else {
                             // New message
