@@ -39,8 +39,7 @@ struct ChatsListView: View {
             .padding(.top, 20)
             .padding(.horizontal)
             
-            
-            // Chat List
+            // Chat list
             if chatViewModel.chats.count > 0 {
                 
                 List(chatViewModel.chats) { chat in
@@ -55,20 +54,19 @@ struct ChatsListView: View {
                         
                     } label: {
                         
-                        ChatListRow(chat: chat,
-                                    otherParticipants: contactsViewModel.getParticipants(ids: chat.participantids))
+                        ChatsListRow(chat: chat,
+                                     otherParticipants: contactsViewModel.getParticipants(ids: chat.participantids))
                     }
                     .buttonStyle(.plain)
                     .listRowBackground(Color.clear)
                     .listRowSeparator(.hidden)
-                    
+
                 }
                 .listStyle(.plain)
                 
-                
-                
             }
             else {
+                
                 Spacer()
                 
                 Image("no-chats-yet")
@@ -77,7 +75,7 @@ struct ChatsListView: View {
                     .font(Font.titleText)
                     .padding(.top, 32)
                 
-                Text("Chat with a friend to get started")
+                Text("Chat a friend to get started")
                     .font(Font.bodyParagraph)
                     .padding(.top, 8)
                 
@@ -85,8 +83,11 @@ struct ChatsListView: View {
                 Spacer()
             }
         }
-       
- 
+        
+        
+        
+        
+        
     }
 }
 
@@ -95,3 +96,4 @@ struct ChatsListView_Previews: PreviewProvider {
         ChatsListView(isChatShowing: .constant(false))
     }
 }
+

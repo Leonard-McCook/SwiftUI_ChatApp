@@ -41,7 +41,7 @@ class DatabaseService {
         
         // Perform queries while we still have phone numbers to look up
         while !lookupPhoneNumbers.isEmpty {
-            
+        
             // Get the first < 10 phone numbers to look up
             let tenPhoneNumbers = Array(lookupPhoneNumbers.prefix(10))
             
@@ -50,7 +50,7 @@ class DatabaseService {
             
             // Look up the first 10
             let query = db.collection("users").whereField("phone", in: tenPhoneNumbers)
-            
+        
             // Retrieve the users that are on the platform
             query.getDocuments { snapshot, error in
                 
@@ -78,6 +78,7 @@ class DatabaseService {
         }
         
         
+        
     }
     
     func setUserProfile(firstName: String, lastName: String, image: UIImage?, completion: @escaping (Bool) -> Void) {
@@ -102,7 +103,7 @@ class DatabaseService {
         
         // Check if an image is passed through
         if let image = image {
-            
+        
             // Create storage reference
             let storageRef = Storage.storage().reference()
             
@@ -188,7 +189,7 @@ class DatabaseService {
         }
         
     }
-    
+ 
     // MARK: - Chat Methods
     
     /// This method returns all chat documents where the logged in user is a participant
@@ -228,7 +229,7 @@ class DatabaseService {
             }
         }
         
-        // Keep track of the listener so it can be closed later
+        // Keep track of the listener so that we can close it later
         chatListViewListeners.append(listener)
     }
     
@@ -277,13 +278,12 @@ class DatabaseService {
             
         }
         
-        // Keep track of listener so it can be closed later
+        // Keep track of listener so that we can close it later
         conversationViewListeners.append(listener)
-        
         
     }
     
-    /// Send a message to the database
+    /// Send a text message to the database
     func sendMessage(msg: String, chat: Chat) {
         
         // Check that it's a valid chat
@@ -310,7 +310,8 @@ class DatabaseService {
                       "lastmsg": msg],
                      merge: true)
     }
-    /// Send a photo to the database
+    
+    /// Send a photo message to the database
     func sendPhotoMessage(image: UIImage, chat: Chat) {
         
         // Check that it's a valid chat
@@ -341,6 +342,7 @@ class DatabaseService {
                 
                 // Get the url for the image in storage
                 fileRef.downloadURL { url, error in
+                    
                     // Check for errors
                     if url != nil && error == nil {
                         
@@ -392,10 +394,10 @@ class DatabaseService {
         }
     }
     
-    func detachConversationListeners() {
+    func detachConversationViewListeners() {
         for listener in conversationViewListeners {
             listener.remove()
-            
         }
     }
 }
+
