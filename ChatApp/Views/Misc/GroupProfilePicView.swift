@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GroupProfilePicView: View {
+    
     var users: [User]
     
     var body: some View {
@@ -16,13 +17,16 @@ struct GroupProfilePicView: View {
         
         ZStack {
             
-            ForEach (Array(users.enumerated()),id:\.element) { index, user in
+            ForEach (Array(users.enumerated()), id:\.element) { index, user in
                 
                 ProfilePicView(user: user)
                     .offset(x: CGFloat(offset * index))
+                
             }
+            
         }
-        // TODO: offset by half the total offset in the direction
+        // offset by half the total offset in the other direction
+        .offset(x: CGFloat((users.count - 1) * abs(offset) / 2) )
+        
     }
 }
-
