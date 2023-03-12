@@ -17,6 +17,7 @@
 		D73A4356294E5AB400BE524C /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A4355294E5AB400BE524C /* Fonts.swift */; };
 		D73A4359294FDEB800BE524C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A4358294FDEB800BE524C /* CustomTabBar.swift */; };
 		D74BDC6229A97376003C4569 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74BDC6129A97376003C4569 /* CacheService.swift */; };
+		D74D6E0629BE752B00F7776F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6E0529BE752B00F7776F /* SettingsView.swift */; };
 		D7527B0E2992F91300045BF4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7527B0D2992F91300045BF4 /* ChatViewModel.swift */; };
 		D7625F4729B815E30016F369 /* GroupProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7625F4629B815E30016F369 /* GroupProfilePicView.swift */; };
 		D764E0E2294D00220005D3A4 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */; };
@@ -66,6 +67,7 @@
 		D73A4355294E5AB400BE524C /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		D73A4358294FDEB800BE524C /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		D74BDC6129A97376003C4569 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
+		D74D6E0529BE752B00F7776F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D7527B0D2992F91300045BF4 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		D7625F4629B815E30016F369 /* GroupProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfilePicView.swift; sourceTree = "<group>"; };
 		D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
@@ -169,6 +171,14 @@
 			path = "Custom Tab Bar";
 			sourceTree = "<group>";
 		};
+		D74D6E0429BE74AA00F7776F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D74D6E0529BE752B00F7776F /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		D764E0D9294A68070005D3A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 				D7FEF57A297B7DF200970FC4 /* Chats View */,
 				D7FEF579297B7DCC00970FC4 /* Contacts View */,
 				D73A4357294FDE6900BE524C /* Custom Tab Bar */,
+				D74D6E0429BE74AA00F7776F /* Settings */,
 				D7A4E8472989F25E009EFE90 /* Misc */,
 			);
 			path = Views;
@@ -382,6 +393,7 @@
 				D7DFCF332954F8B0002ACFEE /* AuthViewModel.swift in Sources */,
 				D7DFCF402957934F002ACFEE /* CreateProfileView.swift in Sources */,
 				D7DFCF3C2957929E002ACFEE /* PhoneNumberView.swift in Sources */,
+				D74D6E0629BE752B00F7776F /* SettingsView.swift in Sources */,
 				D73A4356294E5AB400BE524C /* Fonts.swift in Sources */,
 				D7D72F5C298089D600564027 /* ContactRow.swift in Sources */,
 				D7DFCF3E295792BB002ACFEE /* VerificationView.swift in Sources */,
