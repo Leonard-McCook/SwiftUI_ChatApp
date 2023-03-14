@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @Binding var isSettingsShowing: Bool
+    @Binding var isOnboarding: Bool
+    
+    @State var isDarkMode = false
+    
     var body: some View {
-       
         
         
         
@@ -28,7 +33,9 @@ struct SettingsView: View {
                     Spacer()
                     
                     Button {
-                        // TODO: Close settings view
+                        // Close settings view
+                        isSettingsShowing = false
+                        
                     } label: {
                         Image(systemName: "multiply")
                             .resizable()
@@ -42,14 +49,34 @@ struct SettingsView: View {
                 .padding(.horizontal)
                 
                 // The Form
+                Form {
+                    
+                    Toggle("Dark Mode", isOn: $isDarkMode)
+                    
+                    Button {
+                        // Log out
+                        AuthViewModel.logout()
+                        
+                        // Show login screen again
+                        isOnboarding = true
+                        
+                    } label: {
+                        Text("Log Out")
+                    }
+                    
+                    Button {
+                        // TODO: Delete Account
+                    } label: {
+                        Text("Delete Account")
+                    }
+
+                    
+                }
             }
+            
         }
+        
         
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}
