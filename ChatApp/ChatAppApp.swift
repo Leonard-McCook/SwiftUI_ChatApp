@@ -17,6 +17,7 @@ struct ChatAppApp: App {
             RootView()
                 .environmentObject(ContactsViewModel())
                 .environmentObject(ChatViewModel())
+                .preferredColorScheme(.dark)
         }
     }
 }
