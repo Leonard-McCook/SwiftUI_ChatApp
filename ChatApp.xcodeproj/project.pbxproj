@@ -19,6 +19,7 @@
 		D74BDC6229A97376003C4569 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74BDC6129A97376003C4569 /* CacheService.swift */; };
 		D74D6E0629BE752B00F7776F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6E0529BE752B00F7776F /* SettingsView.swift */; };
 		D74D6E0829C3BFE300F7776F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6E0729C3BFE300F7776F /* SettingsViewModel.swift */; };
+		D74D6E0A29C3CB1B00F7776F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6E0929C3CB1B00F7776F /* Constants.swift */; };
 		D7527B0E2992F91300045BF4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7527B0D2992F91300045BF4 /* ChatViewModel.swift */; };
 		D7625F4729B815E30016F369 /* GroupProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7625F4629B815E30016F369 /* GroupProfilePicView.swift */; };
 		D764E0E2294D00220005D3A4 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */; };
@@ -70,6 +71,7 @@
 		D74BDC6129A97376003C4569 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		D74D6E0529BE752B00F7776F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D74D6E0729C3BFE300F7776F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D74D6E0929C3CB1B00F7776F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D7527B0D2992F91300045BF4 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		D7625F4629B815E30016F369 /* GroupProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfilePicView.swift; sourceTree = "<group>"; };
 		D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				D7F7EF5F2967B07400024A45 /* TextHelper.swift */,
 				D7EF1F89298F0B8700B67D62 /* RoundedCornerExtension.swift */,
 				D7147DDA2999666900A37893 /* DateHelper.swift */,
+				D74D6E0929C3CB1B00F7776F /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D775681029B2909700D07528 /* ContactsPicker.swift in Sources */,
+				D74D6E0A29C3CB1B00F7776F /* Constants.swift in Sources */,
 				D7F7EF5E2966596F00024A45 /* DatabaseService.swift in Sources */,
 				D7625F4729B815E30016F369 /* GroupProfilePicView.swift in Sources */,
 				D7650A1C2960F7A400E69A11 /* CreateProfileTextfieldStyle.swift in Sources */,

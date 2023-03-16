@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 class SettingsViewModel: ObservableObject {
     
-    
+    @AppStorage(Constants.DarkModeKey) var isDarkMode = false
     
 }
