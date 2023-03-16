@@ -18,6 +18,7 @@
 		D73A4359294FDEB800BE524C /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D73A4358294FDEB800BE524C /* CustomTabBar.swift */; };
 		D74BDC6229A97376003C4569 /* CacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74BDC6129A97376003C4569 /* CacheService.swift */; };
 		D74D6E0629BE752B00F7776F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6E0529BE752B00F7776F /* SettingsView.swift */; };
+		D74D6E0829C3BFE300F7776F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74D6E0729C3BFE300F7776F /* SettingsViewModel.swift */; };
 		D7527B0E2992F91300045BF4 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7527B0D2992F91300045BF4 /* ChatViewModel.swift */; };
 		D7625F4729B815E30016F369 /* GroupProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7625F4629B815E30016F369 /* GroupProfilePicView.swift */; };
 		D764E0E2294D00220005D3A4 /* LexendDeca-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */; };
@@ -68,6 +69,7 @@
 		D73A4358294FDEB800BE524C /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		D74BDC6129A97376003C4569 /* CacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheService.swift; sourceTree = "<group>"; };
 		D74D6E0529BE752B00F7776F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D74D6E0729C3BFE300F7776F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		D7527B0D2992F91300045BF4 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		D7625F4629B815E30016F369 /* GroupProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupProfilePicView.swift; sourceTree = "<group>"; };
 		D764E0DF294D00220005D3A4 /* LexendDeca-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LexendDeca-Regular.ttf"; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				D7DFCF322954F8B0002ACFEE /* AuthViewModel.swift */,
 				D7F7EF592963798500024A45 /* ContactsViewModel.swift */,
 				D7527B0D2992F91300045BF4 /* ChatViewModel.swift */,
+				D74D6E0729C3BFE300F7776F /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				D731BBAD294A608500CBE69E /* RootView.swift in Sources */,
 				D7FEF57E297B7ECB00970FC4 /* ChatsListView.swift in Sources */,
 				D7F7EF602967B07400024A45 /* TextHelper.swift in Sources */,
+				D74D6E0829C3BFE300F7776F /* SettingsViewModel.swift in Sources */,
 				D7F7EF5C2966215700024A45 /* User.swift in Sources */,
 				D74BDC6229A97376003C4569 /* CacheService.swift in Sources */,
 				D7147DDD299F140300A37893 /* ChatListRow.swift in Sources */,
