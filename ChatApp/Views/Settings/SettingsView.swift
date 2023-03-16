@@ -70,13 +70,14 @@ struct SettingsView: View {
                         Text("Delete Account")
                     }
 
-                    
                 }
+                .background(Color("background"))
             }
             
         }
-        
-        
+        .onAppear {
+            UITableView.appearance().backgroundColor = .clear
+        }
     }
 }
 
