@@ -12,7 +12,7 @@ struct SettingsView: View {
     @Binding var isSettingsShowing: Bool
     @Binding var isOnboarding: Bool
     
-    @State var isDarkMode = false
+    @EnvironmentObject var settingsViewModel: SettingsViewModel
     
     var body: some View {
         
@@ -51,7 +51,7 @@ struct SettingsView: View {
                 // The Form
                 Form {
                     
-                    Toggle("Dark Mode", isOn: $isDarkMode)
+                    Toggle("Dark Mode", isOn: $settingsViewModel.isDarkMode)
                     
                     Button {
                         // Log out
