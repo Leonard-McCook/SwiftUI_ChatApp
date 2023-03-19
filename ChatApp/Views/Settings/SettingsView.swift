@@ -14,6 +14,8 @@ struct SettingsView: View {
     
     @EnvironmentObject var settingsViewModel: SettingsViewModel
     
+   
+    
     var body: some View {
         
         
@@ -69,15 +71,18 @@ struct SettingsView: View {
                     } label: {
                         Text("Delete Account")
                     }
-
                 }
                 .background(Color("background"))
             }
             
         }
+        .preferredColorScheme(settingsViewModel.isDarkMode ? .dark : .light)
         .onAppear {
             UITableView.appearance().backgroundColor = .clear
         }
+        
+        
     }
 }
+
 
