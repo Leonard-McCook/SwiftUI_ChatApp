@@ -42,21 +42,21 @@ struct ChatsListRow: View {
                         if otherParticipants.count == 1 {
                             
                             Text("\(participant!.firstname ?? "") \(participant!.lastname ?? "")")
-                            
+                                
                         }
                         else if otherParticipants.count == 2 {
                             
                             let participant2 = otherParticipants[1]
                             
                             Text("\(participant!.firstname ?? ""), \(participant2.firstname ?? "")")
-                            
+                                
                         }
                         else if otherParticipants.count > 2 {
                             
                             let participant2 = otherParticipants[1]
                             
                             Text("\(participant!.firstname ?? ""), \(participant2.firstname ?? "") + \(otherParticipants.count - 2) others")
-                            
+                                
                         }
                     }
                     .font(Font.button)
@@ -74,8 +74,8 @@ struct ChatsListRow: View {
             // Timestamp
             Text(chat.updated == nil ? "" :
                     DateHelper.chatTimestampFrom(date: chat.updated!))
-            .font(Font.bodyParagraph)
-            .foregroundColor(Color("text-input"))
+                .font(Font.bodyParagraph)
+                .foregroundColor(Color("text-input"))
         }
         
     }

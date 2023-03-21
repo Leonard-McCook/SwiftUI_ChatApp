@@ -72,7 +72,7 @@ struct ConversationView: View {
                                 
                                 Group {
                                     if participants.count == 1 {
-                                    
+                                        
                                         Text("\(participant?.firstname ?? "") \(participant?.lastname ?? "")")
                                     }
                                     else if participants.count == 2 {
@@ -86,7 +86,7 @@ struct ConversationView: View {
                                         let participant2 = participants[1]
                                         
                                         Text("\(participant?.firstname ?? ""), \(participant2.firstname ?? "") + \(participants.count - 2) others")
-                                            
+                                        
                                     }
                                 }
                                 .font(Font.chatHeading)
@@ -171,11 +171,16 @@ struct ConversationView: View {
                                         }
                                     }
                                     
+                                    let userOfMsg = participants.filter { p in
+                                        p.id == msg.senderid
+                                    }.first
+                                    
                                     if msg.imageurl != "" {
                                         // Photo Message
                                         
                                         ConversationPhotoMessage(imageUrl: msg.imageurl!,
-                                                                 isFromUser: isFromUser)
+                                                                 isFromUser: isFromUser,
+                                                                 isActive: userOfMsg?.isactive ?? true)
                                         
                                     }
                                     else {
@@ -184,14 +189,12 @@ struct ConversationView: View {
                                         // Determine if it's a group chat and a msg from another user
                                         if participants.count > 1 && !isFromUser {
                                             
-                                            let userOfMsg = participants.filter { p in
-                                                p.id == msg.senderid
-                                            }.first
                                             
                                             // Show a text msg with name
                                             ConversationTextMessage(msg: msg.msg,
                                                                     isFromUser: isFromUser,
-                                                                    name: "\(userOfMsg?.firstname ?? "") \(userOfMsg?.lastname ?? "")")
+                                                                    name: "\(userOfMsg?.firstname ?? "") \(userOfMsg?.lastname ?? "")",
+                                                                    isActive: userOfMsg?.isactive ?? true)
                                         }
                                         else {
                                             // Text message with no name
@@ -399,7 +402,7 @@ struct ConversationView: View {
             ContactsPicker(isContactsPickerShowing: $isContactsPickerShowing,
                            selectedContacts: $participants)
         }
-
+        
         
     }
 }

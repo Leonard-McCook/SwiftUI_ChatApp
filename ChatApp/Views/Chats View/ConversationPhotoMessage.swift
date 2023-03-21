@@ -11,10 +11,19 @@ struct ConversationPhotoMessage: View {
     
     var imageUrl: String
     var isFromUser: Bool
+    var isActive: Bool = true
     
     var body: some View {
-        // Check image cache, if it exists use that
-        if let cachedImage = CacheService.getImage(forKey: imageUrl) {
+        
+        // If user is inactive, show a photo deleted message
+        if !isActive {
+            ConversationTextMessage(msg: "Photo deleted",
+                                    isFromUser: isFromUser,
+                                    name: nil,
+                                    isActive: isActive)
+        }
+        // Check image cache, if it exists, use that
+        else if let cachedImage = CacheService.getImage(forKey: imageUrl) {
             
             // Image is in cache so lets use it
             cachedImage
@@ -24,10 +33,11 @@ struct ConversationPhotoMessage: View {
                 .padding(.horizontal, 24)
                 .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
                 .cornerRadius(30, corners: isFromUser ? [.topLeft, .topRight, .bottomLeft] : [.topLeft, .topRight, .bottomRight])
-                
         }
         else {
+            
             // Download the image
+            
             // Create URL from msg photo url
             let photoUrl = URL(string: imageUrl)
             
@@ -44,7 +54,7 @@ struct ConversationPhotoMessage: View {
                     // Display the fetched image
                     image
                         .resizable()
-                        .scaledToFit()
+                        .scaledToFill()
                         .padding(.vertical, 16)
                         .padding(.horizontal, 24)
                         .background(isFromUser ? Color("bubble-primary") : Color("bubble-secondary"))
@@ -58,12 +68,13 @@ struct ConversationPhotoMessage: View {
                 case .failure:
                     // Couldn't fetch profile photo
                     // Display circle with first letter of first name
-                    
                     ConversationTextMessage(msg: "Couldn't load image",
                                             isFromUser: isFromUser)
                 }
+                
             }
         }
+        
     }
 }
 
