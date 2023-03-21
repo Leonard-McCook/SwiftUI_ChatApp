@@ -26,55 +26,57 @@ struct ContactsPicker: View {
                 ScrollView {
                     ForEach(contactsViewModel.filteredUsers) { user in
                         
-                        // Determine if this user is a selected contact
-                        let isSelectedContact = selectedContacts.contains { u in
-                            u.id == user.id
-                        }
-                        
-                        
-                        
-                        ZStack {
-                            ContactRow(user: user)
+                        if user.isactive {
+                            // Determine if this user is a selected contact
+                            let isSelectedContact = selectedContacts.contains { u in
+                                u.id == user.id
+                            }
                             
-                            HStack {
-                                Spacer()
+                            ZStack {
+                                ContactRow(user: user)
                                 
-                                Button {
-                                    // Toggle the user to ne selected or not
-                                    if isSelectedContact {
-                                        
-                                        
-                                        // Find index of this contact
-                                        let index = selectedContacts.firstIndex(of: user)
-                                        
-                                        // Remove this contact from the selected pool
-                                        if let index = index {
-                                            selectedContacts.remove(at: index )
-                                        }
-                                    }
-                                    else {
-                                        
-                                        // Impose the limit of 3
-                                        if selectedContacts.count < 3 {
-                                            // Select this contact
-                                            selectedContacts.append(user)
-                                        }
-                                        else  {
-                                            // TODO: Show message to indicate limit reached
-                                        }
-                                    }
+                                HStack {
+                                    Spacer()
                                     
-                                } label: {
-                                    
-                                    Image(systemName: isSelectedContact ? "checkmark.circle" : "checkmark.circle")
-                                        .resizable()
-                                        .foregroundColor(Color("button-primary"))
-                                        .frame(width: 25, height: 25)
+                                    Button {
+                                        // Toggle the user to ne selected or not
+                                        if isSelectedContact {
+                                            
+                                            
+                                            // Find index of this contact
+                                            let index = selectedContacts.firstIndex(of: user)
+                                            
+                                            // Remove this contact from the selected pool
+                                            if let index = index {
+                                                selectedContacts.remove(at: index )
+                                            }
+                                        }
+                                        else {
+                                            
+                                            // Impose the limit of 3
+                                            if selectedContacts.count < 3 {
+                                                // Select this contact
+                                                selectedContacts.append(user)
+                                            }
+                                            else  {
+                                                // TODO: Show message to indicate limit reached
+                                            }
+                                        }
+                                        
+                                    } label: {
+                                        
+                                        Image(systemName: isSelectedContact ? "checkmark.circle" : "checkmark.circle")
+                                            .resizable()
+                                            .foregroundColor(Color("button-primary"))
+                                            .frame(width: 25, height: 25)
+                                    }
                                 }
                             }
+                            .padding(.top, 18)
+                            .padding(.horizontal)
                         }
-                        .padding(.top, 18)
-                        .padding(.horizontal)
+                        
+                     
                     }
                 }
                 
