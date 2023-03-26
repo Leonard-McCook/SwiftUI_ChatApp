@@ -38,6 +38,7 @@ struct PhoneNumberView: View {
                 
                 HStack {
                     TextField("e.g. +1 613 515 0123", text: $phoneNumber)
+                        .foregroundColor(Color("text-textfield"))
                         .font(Font.bodyParagraph)
                         .keyboardType(.numberPad)
                         .onReceive(Just(phoneNumber)) { _ in

@@ -42,6 +42,7 @@ struct VerificationView: View {
                 
                 HStack {
                     TextField("", text: $verificationcode)
+                        .foregroundColor(Color("text-textfield"))
                         .font(Font.bodyParagraph)
                         .keyboardType(.numberPad)
                         .onReceive(Just(verificationcode)) { _ in
