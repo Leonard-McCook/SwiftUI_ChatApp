@@ -33,6 +33,7 @@
 		D78265F32968F6FE00A409C8 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78265F22968F6FE00A409C8 /* ImagePicker.swift */; };
 		D791B74529906A45006BEBA2 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791B74429906A45006BEBA2 /* Chat.swift */; };
 		D7A4E8492989F354009EFE90 /* ProfilePicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A4E8482989F354009EFE90 /* ProfilePicView.swift */; };
+		D7ACC44529D1B9F500D5898F /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7ACC44429D1B9F500D5898F /* ViewExtensions.swift */; };
 		D7D72F5C298089D600564027 /* ContactRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D72F5B298089D600564027 /* ContactRow.swift */; };
 		D7DFCF232953B018002ACFEE /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7DFCF222953B018002ACFEE /* TabBarButton.swift */; };
 		D7DFCF282954C0CA002ACFEE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7DFCF272954C0CA002ACFEE /* FirebaseAuth */; };
@@ -86,6 +87,7 @@
 		D78265F22968F6FE00A409C8 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D791B74429906A45006BEBA2 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		D7A4E8482989F354009EFE90 /* ProfilePicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePicView.swift; sourceTree = "<group>"; };
+		D7ACC44429D1B9F500D5898F /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		D7D72F5B298089D600564027 /* ContactRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactRow.swift; sourceTree = "<group>"; };
 		D7DFCF222953B018002ACFEE /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		D7DFCF2F2954C18E002ACFEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 				D7EF1F89298F0B8700B67D62 /* RoundedCornerExtension.swift */,
 				D7147DDA2999666900A37893 /* DateHelper.swift */,
 				D74D6E0929C3CB1B00F7776F /* Constants.swift */,
+				D7ACC44429D1B9F500D5898F /* ViewExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				D7650A1C2960F7A400E69A11 /* CreateProfileTextfieldStyle.swift in Sources */,
 				D7DFCF42295793B3002ACFEE /* SyncContactsView.swift in Sources */,
 				D7147DDB2999666900A37893 /* DateHelper.swift in Sources */,
+				D7ACC44529D1B9F500D5898F /* ViewExtensions.swift in Sources */,
 				D7DFCF302954C18E002ACFEE /* AppDelegate.swift in Sources */,
 				D7DFCF3829575F2C002ACFEE /* OnboardingContainerView.swift in Sources */,
 				D73A4359294FDEB800BE524C /* CustomTabBar.swift in Sources */,
