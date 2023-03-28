@@ -46,6 +46,11 @@ struct PhoneNumberView: View {
                                                              pattern: "+# (###) ###-####",
                                                              replacementCharacter: "#")
                         }
+                        .placeholder(when: phoneNumber.isEmpty) {
+                            Text("e.g. +1 613 515 0123")
+                                .foregroundColor(Color("text-textfield"))
+                                .font(Font.bodyParagraph)
+                        }
                     
                     Spacer()
                     
@@ -58,8 +63,8 @@ struct PhoneNumberView: View {
                     .frame(width: 19, height: 19)
                     .tint(Color("icons-input"))
                     
-                        
-                        
+                    
+                    
                 }
                 .padding()
                 
@@ -114,7 +119,7 @@ struct PhoneNumberView: View {
                             .padding(.leading, 2)
                     }
                 }
-                    
+                
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)
@@ -124,7 +129,7 @@ struct PhoneNumberView: View {
         .padding(.horizontal)
         
     }
-        
+    
 }
 
 struct PhoneNumberView_Previews: PreviewProvider {

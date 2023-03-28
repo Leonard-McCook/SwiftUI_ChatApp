@@ -74,12 +74,22 @@ struct CreateProfileView: View {
             Spacer()
             
             // First name
-            TextField("Given Name", text: $firstName)
+            TextField("First Name", text: $firstName)
                 .textFieldStyle(CreateProfileTextfieldStyle())
+                .placeholder(when: firstName.isEmpty) {
+                    Text("First Name ")
+                        .foregroundColor(Color("text-textfield"))
+                        .font(Font.bodyParagraph)
+                }
             
             // Last name
             TextField("Last Name", text: $lastName)
                 .textFieldStyle(CreateProfileTextfieldStyle())
+                .placeholder(when: lastName.isEmpty) {
+                    Text("Last Name")
+                        .foregroundColor(Color("text-textfield"))
+                        .font(Font.bodyParagraph)
+                }
             
             // Error label
             Text(errorMessage)
