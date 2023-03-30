@@ -84,11 +84,11 @@ struct ChatsListView: View {
                 
                 Image("no-chats-yet")
                 
-                Text("Hmm... no chats here yet!")
+                Text("No chats here yet!")
                     .font(Font.titleText)
                     .padding(.top, 32)
                 
-                Text("Chat a friend to get started")
+                Text("Chat with a friend to get started")
                     .font(Font.bodyParagraph)
                     .padding(.top, 8)
                 

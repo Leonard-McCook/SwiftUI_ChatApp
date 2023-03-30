@@ -33,7 +33,7 @@ struct CreateProfileView: View {
                 .font(Font.titleText)
                 .padding(.top, 52)
             
-            Text("Just a few more details to get started")
+            Text("Just a few more details needed to get started")
                 .font(Font.bodyParagraph)
                 .padding(.top, 12)
             
@@ -108,7 +108,7 @@ struct CreateProfileView: View {
                 // Check that firstname/lastname fields are filled before allowing to save
                 guard !firstName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && !lastName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                     
-                    errorMessage = "Please enter in a valid first name and last name."
+                    errorMessage = "Please enter in a valid first and last name."
                     isErrorLabelVisible = true
                     return
                 }

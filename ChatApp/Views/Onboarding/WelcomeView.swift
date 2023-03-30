@@ -22,7 +22,7 @@ struct WelcomeView: View {
                 .font(Font.titleText)
                 .padding(.top, 32)
             
-            Text("Simple and hassle-free chat experience")
+            Text("Hassle-free, simple chat experience")
                 .font(Font.bodyParagraph)
                 .padding(.top, 8)
             
@@ -32,13 +32,13 @@ struct WelcomeView: View {
                 // Next step
                 currentStep = .phonenumber
             } label: {
-                Text("Get Started")
+                Text("Join")
             }
             .buttonStyle(OnboardingButtonStyle())
             
         
         
-        Text(" By tapping 'Get Started', you agree to our Privacy Policy.")
+        Text(" By tapping 'Join', you agree to our Privacy Policy.")
             .font(Font.smallText)
             .padding(.top, 14)
             .padding(.bottom, 61)

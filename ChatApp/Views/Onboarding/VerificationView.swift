@@ -29,7 +29,7 @@ struct VerificationView: View {
                 .font(Font.titleText)
                 .padding(.top, 52)
             
-            Text("Enter the 6-digit verification code we sent to your device.")
+            Text("Enter the 6-digit verification code that was sent to your device.")
                 .font(Font.bodyParagraph)
                 .padding(.top, 12)
             
